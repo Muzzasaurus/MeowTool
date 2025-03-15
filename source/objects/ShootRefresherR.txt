@@ -2,6 +2,6 @@ sprite=sprShootRefresherR
 visible=1
 solid=0
 persistent=0
-depth=-15
+depth=0
 parent=ShootRefresherL
 mask=
