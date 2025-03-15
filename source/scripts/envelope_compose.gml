@@ -57,6 +57,7 @@ if (settings("fullscreen")) {
     texture_set_interpolation(0)
 }
 
+/* dont need you
 if (maxalpha>0) {
     //draw engine fullscreen button
     d3d_set_projection_ortho(0,0,global.ww,global.wh,0)
@@ -86,3 +87,4 @@ if (maxalpha>0) {
         draw_set_alpha(1)
     }
 }
+*/
