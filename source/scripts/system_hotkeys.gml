@@ -37,6 +37,8 @@ if (key_restart(vi_pressed) && !global.no_restart && !frozen) {
         }
         with (OneTimePlatform) {
             active=true
+            mask_index = old_mask
+            visible = true
         }
     }
 }
