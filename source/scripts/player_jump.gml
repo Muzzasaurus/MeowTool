@@ -54,7 +54,7 @@ if (vvvvvv) {
             image_index=0
             trigger_broadcast(tr_playerjump)
             with instance_place(x,y,OneTimePlatform) event_user(0)
-            with instance_place(x,y-1,OneTimePlatform) event_user(0)
+            with instance_place(x,y+1,OneTimePlatform) event_user(0)
             with instance_place(x-hspeed,y-vspeed,OneTimePlatform) event_user(0)
             with instance_place(x+hspeed,y+vspeed,OneTimePlatform) event_user(0)
             coyoteTime=0
