@@ -24,6 +24,9 @@ updateSprite(sprSaveHard,"save",0,0)
 updateSprite(sprDynamicPlatform,"platform",0,0)
 updateSprite(sprUpPlatform,"sidewaysPlatform",0,0)
 updateSprite(sprOneTimePlatform,"oneTimePlatform",0,0)
+with (OneTimePlatform) {
+    old_sprite = sprite_index
+}
 updateSprite(sprGravFlip,"gravFlip",0,0)
 updateSprite(sprGravNormal,"gravNormal",0,0)
 updateSprite(sprKillBlock,"killBlock",0,0,"killerBlock")
