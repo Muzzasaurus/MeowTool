@@ -40,6 +40,9 @@ if (key_restart(vi_pressed) && !global.no_restart && !frozen) {
         with (OneTimePlatform) {
             sprite_index = old_sprite
         }
+        with (objSwing) {
+            event_perform(ev_create, 0)
+        }
     }
 }
 
