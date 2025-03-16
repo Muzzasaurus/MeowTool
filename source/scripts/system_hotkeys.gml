@@ -32,6 +32,7 @@ if (key_restart(vi_pressed) && !global.no_restart && !frozen) {
             image_alpha=1
             alarm[1]=0
             startLaunch=false
+            val=240
         }
         with (ShootRefresherL) {
             image_index=0
