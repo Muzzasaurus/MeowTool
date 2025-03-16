@@ -8,6 +8,19 @@ hover=false
 primed=false
 width=122
 height=38
+
+hoverTime = 0
+#define Step_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if (hover) {
+    hoverTime += 1
+} else {
+    hoverTime = 0
+}
 #define Mouse_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

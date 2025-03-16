@@ -336,3 +336,4 @@ importJmap
 findWord
 objImportWithString
 jtoolIDtoObject
+objGetToolTip

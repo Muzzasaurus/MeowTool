@@ -16,8 +16,15 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+event_inherited()
+
 y=ystart+objObjSelect.drawYOffset
 drawY=y+19-sprite_get_height(sprIndex)/2+sprite_get_yoffset(sprIndex)
+
+if (hover) {
+    if (hoverTime = 1) fruitName = pick(irandom(2)+1, "Cherry", "Delicious Fruit", "Apple")
+    global.tooltip = objGetToolTip(objIndex)
+}
 #define Mouse_7
 /*"/*'/**//* YYD ACTION
 lib_id=1
