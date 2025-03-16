@@ -67,7 +67,7 @@ if (vvvvvv) {
             if (instance_place(x,y+1,GuyWater)) onfire=false
     } else if (global.debug_jump || infJump
         || (djump<maxjumps || instance_place(x,y+1*vflip,Water2) || instance_place(x,y+1*vflip,NekoronAir) || swt=="Water2")
-        && !(beamstate&beam_onejump)) {
+        && !(beamstate&beam_onejump)) and (!onSwing) {
             //double jump
             if (!instance_place(x,y,WaterNoJump)) {
                 vspeed=-jump2*vflip

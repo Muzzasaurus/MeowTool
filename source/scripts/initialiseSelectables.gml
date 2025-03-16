@@ -68,6 +68,7 @@ with (objSelectable) {
         case 76: objIndex=SlopeTL break
 
         case 79: objIndex=LucsterBubble break
+        case 80: objIndex=objSwing break
 
         default: instance_destroy() break
     }

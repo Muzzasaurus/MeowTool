@@ -62,6 +62,7 @@ switch (argument0) {
     case SlopeBL:
     case SlopeBR:
     case LucsterBubble:
+    case objSwing:
     return true
 }
 return false
