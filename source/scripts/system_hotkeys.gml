@@ -13,6 +13,7 @@ if (key_restart(vi_pressed) && !global.no_restart && !frozen) {
         //reset objects manually as room no longer restarts
         instance_destroy_id(BloodEmitter)
         instance_destroy_id(Blood)
+        instance_destroy_id(Bullet)
         instance_destroy_id(GibParticle)
         sound_stop("sndDeath")
         instance_destroy_id(ShootKid)
