@@ -128,6 +128,7 @@ drawhp=0
 vineMap=ds_map_create()
 
 updraftStrength=0.8 //default: 0.8
+onSwing = false
 
 input_clear()
 input_consume()
