@@ -337,3 +337,4 @@ findWord
 objImportWithString
 jtoolIDtoObject
 objGetToolTip
+stringGetLine

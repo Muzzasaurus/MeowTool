@@ -24,6 +24,9 @@ drawY=y+19-sprite_get_height(sprIndex)/2+sprite_get_yoffset(sprIndex)
 if (hover) {
     if (hoverTime = 1) fruitName = pick(irandom(2)+1, "Cherry", "Delicious Fruit", "Apple")
     global.tooltip = objGetToolTip(objIndex)
+
+    if (hoverTime < 25)
+        global.tooltip = stringGetLine(global.tooltip,1)
 }
 #define Mouse_7
 /*"/*'/**//* YYD ACTION

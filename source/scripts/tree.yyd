@@ -320,4 +320,5 @@
 |objImportWithString
 |jtoolIDtoObject
 |objGetToolTip
+|stringGetLine
 |objCreateWithStringBackup
