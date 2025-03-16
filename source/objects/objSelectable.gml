@@ -16,9 +16,11 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+y=ystart+objObjSelect.drawYOffset
+hover = point_in_rectangle(mouse_xfixed, mouse_y, x,       max(y, objObjSelect.paletteTopBorder),
+                                                  x+width, min(y+height, objObjSelect.paletteBottomBorder))
 event_inherited()
 
-y=ystart+objObjSelect.drawYOffset
 drawY=y+19-sprite_get_height(sprIndex)/2+sprite_get_yoffset(sprIndex)
 
 if (hover) {
