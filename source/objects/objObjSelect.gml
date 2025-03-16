@@ -469,14 +469,26 @@ if (mode == "build") {
     } else {
         with (all) {
             if (objInPalette(object_index)) {
-                __centerX=(bbox_left+bbox_right)/2
-                __centerY=(bbox_top+bbox_bottom)/2
-                if (__centerX >= (min(other.selectBoxX,mouse_xfixed)))
-                and (__centerX <= (max(other.selectBoxX,mouse_xfixed)))
-                and (__centerY >= (min(other.selectBoxY,mouse_y)))
-                and (__centerY <= (max(other.selectBoxY,mouse_y))) {
-                    ds_list_add(other.selectedObjects,id)
-                    image_blend=$ff8957
+                //change to true to enable old behaviour (you have to select the center to actually select the object)
+                if (false) {
+                    __centerX=(bbox_left+bbox_right)/2
+                    __centerY=(bbox_top+bbox_bottom)/2
+                    if (__centerX >= (min(other.selectBoxX,mouse_xfixed)))
+                    and (__centerX <= (max(other.selectBoxX,mouse_xfixed)))
+                    and (__centerY >= (min(other.selectBoxY,mouse_y)))
+                    and (__centerY <= (max(other.selectBoxY,mouse_y))) {
+                        ds_list_add(other.selectedObjects,id)
+                        image_blend=$ff8957
+                    }
+                } else {
+                    if (
+                    rectangle_in_rectangle(
+                    bbox_left, bbox_top, bbox_right, bbox_bottom,
+                    other.selectBoxX, other.selectBoxY, mouse_xfixed, mouse_y
+                    )) {
+                        ds_list_add(other.selectedObjects,id)
+                        image_blend=$ff8957
+                    }
                 }
             }
         }
