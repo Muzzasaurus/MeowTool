@@ -270,6 +270,23 @@ if (scaling) and (!ds_list_empty(selectedObjects)) {
         }
     }
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///deleting stuff in edit mode
+
+if (mode == "edit" and keyboard_check_pressed(vk_delete)) {
+    repeat (ds_list_size(selectedObjects)) {
+        instance_destroy_id(ds_list_find_value(selectedObjects, 0))
+        ds_list_delete(selectedObjects, 0)
+    }
+    drawTop=infinity
+    drawLeft=infinity
+    drawBottom=0
+    drawRight=0
+}
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -329,7 +346,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-///Place object
+///Place object, start selection or begin scaling
 if (mode == "build") {
     if (mouse_check_button_pressed(mb_left)) {
         z=0
