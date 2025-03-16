@@ -53,6 +53,9 @@ if (vvvvvv) {
             djump=1
             image_index=0
             trigger_broadcast(tr_playerjump)
+            with instance_place(x,y,OneTimePlatform) event_user(0)
+            with instance_place(x-hspeed,y-vspeed,OneTimePlatform) event_user(0)
+            with instance_place(x+hspeed,y+vspeed,OneTimePlatform) event_user(0)
             coyoteTime=0
             jump_timer=0
             onGround=false
