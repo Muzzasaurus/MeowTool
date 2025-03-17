@@ -10,8 +10,8 @@ parent   = noone
 width  = 32
 height = 32
 
-fillColor = c_white
-lineColor = c_black
+fillColor = global.guiMainFillColor
+lineColor = global.guiMainLineColor
 hasFill   = true
 hasLine   = true
 #define Draw_0

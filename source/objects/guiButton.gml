@@ -10,7 +10,7 @@ action_id=603
 applies_to=self
 */
 label = "This is a button."
-hoverFill = c_blue
+hoverFill = global.guiMainHoverFillColor
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

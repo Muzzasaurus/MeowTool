@@ -1,4 +1,9 @@
 ///guiInit()
+global.guiMainLineColor = c_black
+global.guiMainFillColor = $DDDDDD
+global.guiMainHoverFillColor = $BBBBBB
+global.guiMainPrimedFillColor = c_white
+
 var i, button, label;
 i = guiCreate(0, 0, 300, 200, guiElement)
 
