@@ -76,6 +76,8 @@ applies_to=self
 event_room_start()
 
 alarm[1]=1
+
+if (room == rmBuild) guiInit()
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1

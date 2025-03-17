@@ -313,6 +313,7 @@
 	|editMode
 	|buildMode
 	|is_letter
+	|drawTextBox
 |initialiseSelectables
 |objInPalette
 |findWord
@@ -322,3 +323,8 @@
 |objGetToolTip
 |stringGetLine
 |objCreateWithStringBackup
++GUI
+	|guiLink
+	|guiInit
+	|guiCreate
+	|guiDrawChildren

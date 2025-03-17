@@ -338,3 +338,8 @@ objImportWithString
 jtoolIDtoObject
 objGetToolTip
 stringGetLine
+guiLink
+guiDrawChildren
+guiInit
+guiCreate
+drawTextBox

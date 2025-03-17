@@ -543,6 +543,10 @@
 	|objPopup
 	|objInfoPopup
 	|objDepthOrderPopup
++New GUI
+	|guiElement
+	|guiButton
+	|guiLabel
 +Meow System
 	|objObjSelect
 	|objKeyLogger

@@ -553,3 +553,7 @@ objDrawGrid
 objImportJmap
 OneTimePlatform
 objSwing
+
+guiElement
+guiButton
+guiLabel

@@ -1,0 +1,2 @@
+constant=tr_element_draw
+kind=0
