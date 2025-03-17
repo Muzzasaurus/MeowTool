@@ -343,3 +343,4 @@ guiDrawChildren
 guiInit
 guiCreate
 drawTextBox
+guiButtonClick

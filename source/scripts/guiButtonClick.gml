@@ -1,0 +1,2 @@
+///guiButtonClick()
+kill_player()

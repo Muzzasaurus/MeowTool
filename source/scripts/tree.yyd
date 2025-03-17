@@ -327,4 +327,5 @@
 	|guiLink
 	|guiInit
 	|guiCreate
+	|guiButtonClick
 	|guiDrawChildren
