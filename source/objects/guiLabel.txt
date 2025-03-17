@@ -1,4 +1,4 @@
-sprite=
+sprite=sprGuiLabelEditor
 visible=1
 solid=0
 persistent=0

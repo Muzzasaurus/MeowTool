@@ -435,3 +435,6 @@ sprOneTimePlatform
 
 sprSwing
 sprSwingRange
+sprGuiElementEditor
+sprGuiButtonEditor
+sprGuiLabelEditor

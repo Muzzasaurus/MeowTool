@@ -453,3 +453,7 @@
 |sprScaleButton
 |sprSwing
 |sprSwingRange
++Editor
+	|sprGuiButtonEditor
+	|sprGuiLabelEditor
+	|sprGuiElementEditor
