@@ -9,13 +9,13 @@ guiRoot.hasFill = false
 guiRoot.hasLine = false
 
 var panel, scrolling;
-panel = guiCreate(64, 64, 200, 500, guiElement, guiRoot)
+panel = guiCreate(0, 0, 200, 500, guiElement, guiRoot)
 
 scrolling = guiCreate(10, 10, 200 - 20, 500 - 20, guiScrolling, panel)
-
-scrolling.scrollHeight = 800
-for (xx=0; xx + 32 < scrolling.width; xx += 40) {
-    for (yy=0; yy + 32 < 800; yy+=40) {
+scrolling.scrollWidth  = scrolling.width
+scrolling.scrollHeight = 640
+for (xx=0; xx + 32 < scrolling.scrollWidth; xx += 40) {
+    for (yy=0; yy + 32 < scrolling.scrollHeight; yy+=40) {
         var b; b = guiCreate(xx, yy, 32, 32, guiButton, scrolling)
         b.label = "test"
     }

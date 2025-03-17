@@ -14,7 +14,7 @@ scrollY = 0
 actualScrollX = 0
 actualScrollY = 0
 
-scrollSpeed = 10
+scrollSpeed = 20
 
 scrollWidth = 32
 scrollHeight = 40
@@ -51,8 +51,8 @@ scrollHeight = max(height, scrollHeight)
 actualScrollY = clamp(actualScrollY, 0, scrollHeight - height)
 actualScrollX = clamp(actualScrollX, 0, scrollWidth - width)
 
-scrollX += actualScrollX - scrollX / 2
-scrollY += actualScrollY - scrollY / 2
+scrollX += (actualScrollX - scrollX) / 2
+scrollY += (actualScrollY - scrollY) / 2
 #define Trigger_Draw GUI Element
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -65,13 +65,18 @@ event_inherited()
 var childSurface; childSurface = surface_create(width-1, height-1)
 surface_set_target(childSurface)
 
+
 //guh
 d3d_transform_stack_push()
 d3d_transform_set_translation(-scrollX, -scrollY, 0)
-d3d_transform_add_translation(-x, -y, 0)
 d3d_transform_add_translation(-1, -1, 0)
+
+d3d_transform_stack_push()
+d3d_transform_add_translation(-x, -y, 0)
 guiDrawChildren()
 d3d_transform_stack_pop()
+d3d_transform_stack_pop()
+
 
 surface_set_target(application_surface)
 draw_surface(childSurface, x+1, y+1)
