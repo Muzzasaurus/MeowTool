@@ -1,4 +1,4 @@
-///guiCreate(x,y,w,h,element,[parent])
+///guiCreate(x,y,w,h,element,parent)
 //helper function
 
 var xx,yy,w,h,element,parent;
