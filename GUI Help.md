@@ -59,7 +59,27 @@ read-only properties:
 
 ### guiLabel
 a label that displays text. thats all it does.
+
+properties:
 * all of the properties of `guiElement` (though some of them arent used)
 * `label` (string): the text that it displays.
 * `halign` (halign constant): horizontal alignment of the text in the elements box
 * `valign` (valign constant): vertical alignment of the text in the elements box
+
+### guiScroll
+a scrollable element. masks child elements correctly.
+
+properties:
+* all of the properties of `guiElement`
+* `actualScrollX` (real): where the element will scroll to
+* `scrollX` (real): the current scrolling position. follows `actualScrollX`
+* `actualScrollY` (real): see `actualScrollX`
+* `scrollY` (real): see `scrollX`
+* `scrollSpeed` (real): how much the element gets scrolled whenever the user scrolls the mouse
+
+### guiTexture
+displays a texture (sprite, background, or surface) with the specified dimensions.
+
+properties:
+* all of the properties of `guiElement`
+* `texture` (texture): the texture that will be drawn
