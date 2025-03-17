@@ -22,6 +22,7 @@ applies_to=self
 */
 if (parent != noone) exit
 
+global.guiElementDepth = 0
 event_perform(ev_trigger, tr_element_draw)
 guiDrawChildren()
 #define Trigger_Draw GUI Element

@@ -67,6 +67,8 @@ if (keyboard_check_pressed(vk_f3)) {
         instance_create(0,0,global.profiler_manager)
     }
 }
+//gui debugger
+if (keyboard_check(vk_control) and keyboard_check_pressed(ord("A"))) { global.guiDebug = not global.guiDebug }
 
 system_hotkeys()
 

@@ -1,2 +1,3 @@
 //you can put any custom game start code here
 global.tooltip = ""
+global.guiDebug = false
