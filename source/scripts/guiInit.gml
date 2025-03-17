@@ -8,12 +8,15 @@ globalvar guiRoot; guiRoot = guiCreate(0, 0, 10000, 10000, guiElement, noone)
 guiRoot.hasFill = false
 guiRoot.hasLine = false
 
-var panel, button, label;
-panel = guiCreate(32, 32, 300, 200, guiElement, guiRoot)
+var panel, scrolling;
+panel = guiCreate(64, 64, 200, 500, guiElement, guiRoot)
 
-button = guiCreate(150 - 30, 200 - (20 + 30), 60, 30, guiButton, panel)
-button.label = "yes"
-button.clickAction = "kill player"
+scrolling = guiCreate(10, 10, 200 - 20, 500 - 20, guiScrolling, panel)
 
-label = guiCreate(20, 20, 260, 200 - (20 + 30 + 20), guiLabel, panel)
-label.label = "do you want to die?"
+scrolling.scrollHeight = 800
+for (xx=0; xx + 32 < scrolling.width; xx += 40) {
+    for (yy=0; yy + 32 < 800; yy+=40) {
+        var b; b = guiCreate(xx, yy, 32, 32, guiButton, scrolling)
+        b.label = "test"
+    }
+}

@@ -547,6 +547,7 @@
 	|guiElement
 	|guiButton
 	|guiLabel
+	|guiScrolling
 +Meow System
 	|objObjSelect
 	|objKeyLogger

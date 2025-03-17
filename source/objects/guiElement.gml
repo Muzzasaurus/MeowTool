@@ -17,6 +17,9 @@ hasLine   = true
 
 hover = false
 hoverable = false
+
+//mouseOver is true when the element contains a hovered element
+mouseOver = false
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -33,6 +36,7 @@ applies_to=self
 if (parent != noone) exit
 
 global.guiElementDepth = 0
+with (all) __guiDrawChildren_ran = false
 event_perform(ev_trigger, tr_element_draw)
 guiDrawChildren()
 #define Trigger_Draw GUI Element
