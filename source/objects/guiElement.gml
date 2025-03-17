@@ -14,6 +14,16 @@ fillColor = global.guiMainFillColor
 lineColor = global.guiMainLineColor
 hasFill   = true
 hasLine   = true
+
+hover = false
+hoverable = false
+#define Step_1
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+hover = global.guiMouseHovering == id
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -40,5 +50,5 @@ if (hasLine) {
     draw_set_color(lineColor)
     draw_rectangle(x, y, x+width, y+height, true)
 }
-
+draw_text(x, y, pick(hover, "false", "true"))
 draw_reset()

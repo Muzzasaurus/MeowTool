@@ -329,3 +329,4 @@
 	|guiCreate
 	|guiButtonClick
 	|guiDrawChildren
+	|guiGetHover

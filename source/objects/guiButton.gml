@@ -15,24 +15,9 @@ primedFill = global.guiMainPrimedFillColor
 
 clickAction = "nothing"
 
-hover = false
 primed = false
-#define Step_1
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-hover = point_in_rectangle(mouse_xfixed, mouse_y, x, y, x+width, y+height)
 
-if (mouse_check_button_pressed(mb_left) and hover)
-    primed = true
-
-if (mouse_check_button_released(mb_left) and primed) {
-    guiButtonClick()
-}
-
-if (not hover) primed = false
+hoverable = true
 #define Trigger_Draw GUI Element
 /*"/*'/**//* YYD ACTION
 lib_id=1

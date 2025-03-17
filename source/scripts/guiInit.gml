@@ -4,11 +4,15 @@ global.guiMainFillColor = $DDDDDD
 global.guiMainHoverFillColor = $BBBBBB
 global.guiMainPrimedFillColor = c_white
 
-var i, button, label;
-i = guiCreate(0, 0, 300, 200, guiElement)
+globalvar guiRoot; guiRoot = guiCreate(0, 0, 10000, 10000, guiElement)
+guiRoot.hasFill = false
+guiRoot.hasLine = false
 
-button = guiCreate(150 - 30, 200 - (20 + 30), 60, 30, guiButton, i)
+var panel, button, label;
+panel = guiCreate(32, 32, 300, 200, guiElement, guiRoot)
+
+button = guiCreate(150 - 30, 200 - (20 + 30), 60, 30, guiButton, panel)
 button.label = "ok"
 
-label = guiCreate(20, 20, 260, 200 - (20 + 30 + 20), guiLabel, i)
+label = guiCreate(20, 20, 260, 200 - (20 + 30 + 20), guiLabel, panel)
 label.label = "we have come for your nectar"

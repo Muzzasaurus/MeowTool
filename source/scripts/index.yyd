@@ -344,3 +344,4 @@ guiInit
 guiCreate
 drawTextBox
 guiButtonClick
+guiGetHover
