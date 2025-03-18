@@ -315,6 +315,7 @@
 	|is_letter
 	|drawTextBox
 |initialiseSelectables
+|getPaletteObject
 |objInPalette
 |findWord
 |objCreateWithString
@@ -324,8 +325,10 @@
 |stringGetLine
 |objCreateWithStringBackup
 +GUI
+	+Init
+		|guiInit
+		|guiInitSidebar
 	|guiLink
-	|guiInit
 	|guiCreate
 	|guiButtonClick
 	|guiDrawChildren

@@ -9,7 +9,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-label = "This is a button."
+label = ""
 hoverFill = global.guiMainHoverFillColor
 primedFill = global.guiMainPrimedFillColor
 
