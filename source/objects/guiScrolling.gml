@@ -20,6 +20,7 @@ scrollWidth = 32
 scrollHeight = 40
 
 hasFill = false
+hasLine = false
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -59,18 +60,19 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-event_inherited()
+//!!!WARNING!!! FUCKED UP CODE !!!WARNING!!!
+
+if (hasFill)
+    draw_rect(x, y, width, height, fillColor, 1, 0)
 
 //TODO: make this support scrolling elements inside of scrolling elements
-var childSurface; childSurface = surface_create(width-1, height-1)
+var childSurface; childSurface = surface_create(width, height)
 surface_set_target(childSurface)
 
 
 //guh
 d3d_transform_stack_push()
 d3d_transform_set_translation(-scrollX, -scrollY, 0)
-d3d_transform_add_translation(-1, -1, 0)
-
 d3d_transform_stack_push()
 d3d_transform_add_translation(-x, -y, 0)
 guiDrawChildren()
@@ -79,8 +81,13 @@ d3d_transform_stack_pop()
 
 
 surface_set_target(application_surface)
-draw_surface(childSurface, x+1, y+1)
+draw_surface(childSurface, x, y)
 surface_free(childSurface)
+
+if (hasLine) {
+    draw_set_color(lineColor)
+    draw_rectangle(x, y, x+width, y+height, true)
+}
 
 if (global.guiDebug) {
     draw_set_color(make_color_hsv(255 * global.guiElementDepth/10, 255, 255))

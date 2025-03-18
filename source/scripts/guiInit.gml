@@ -13,10 +13,32 @@ panel = guiCreate(0, 0, 200, 500, guiElement, guiRoot)
 
 scrolling = guiCreate(10, 10, 200 - 20, 500 - 20, guiScrolling, panel)
 scrolling.scrollWidth  = scrolling.width
-scrolling.scrollHeight = 640
-for (xx=0; xx + 32 < scrolling.scrollWidth; xx += 40) {
-    for (yy=0; yy + 32 < scrolling.scrollHeight; yy+=40) {
-        var b; b = guiCreate(xx, yy, 32, 32, guiButton, scrolling)
-        b.label = "test"
+scrolling.scrollHeight = 2000
+scrolling.hasFill = true
+scrolling.fillColor = c_olive
+//scrolling.hasLine = true
+
+var xx, yy;
+yy = 0
+while (yy + 40 <= scrolling.scrollHeight) {
+    var row; row = guiCreate(0, yy, 40 * 3, 40, guiElement, scrolling)
+    row.hasLine = false
+    row.hasFill = false
+
+    xx = 0
+    while (xx + 40 <= scrolling.scrollWidth) {
+        var b; b = guiCreate(xx, 0, 32, 32, guiSprite, row)
+        var spr; spr = -1
+        while (not sprite_exists(spr)) {
+            spr = irandom(500)
+        }
+        b.sprite = spr
+        b.subImage = irandom(sprite_get_number(spr))
+        b.blend = irandom($FFFFFF)
+        //b.alpha = random(1)
+
+        xx += 40
     }
+
+    yy += 40
 }

@@ -439,4 +439,4 @@ sprGuiElementEditor
 sprGuiButtonEditor
 sprGuiLabelEditor
 sprGuiScrollingEditor
-sprGuiTextureEditor
+sprGuiSpriteEditor

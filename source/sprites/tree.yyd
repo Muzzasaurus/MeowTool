@@ -458,4 +458,4 @@
 	|sprGuiLabelEditor
 	|sprGuiElementEditor
 	|sprGuiScrollingEditor
-	|sprGuiTextureEditor
+	|sprGuiSpriteEditor
