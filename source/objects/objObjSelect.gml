@@ -53,6 +53,7 @@ action_id=603
 applies_to=self
 */
 ///Set up palette
+exit
 k=0
 for (i=0; i<rows; i+=1) {
     for (j=0; j<columns; j+=1) {
@@ -711,10 +712,12 @@ if (gridAlpha > 0) {
 draw_set_alpha(1)
 draw_set_font(fntFileSmall)
 //draw sidebar
+/*
 draw_sprite(sprSidebar,0,800,0)
 draw_set_color($000000)
 draw_line(800,0,800,room_height)
 draw_set_color($FFFFFF)
+*/
 //draw selected obj sprite
 if (mode == "build") {
     if (selectedObj == SavePointFlip) {

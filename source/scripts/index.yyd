@@ -345,3 +345,5 @@ guiCreate
 drawTextBox
 guiButtonClick
 guiGetHover
+guiInitSidebar
+getPaletteObject
