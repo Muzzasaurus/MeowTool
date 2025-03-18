@@ -6,6 +6,7 @@ guiSidebar.isSidebar = true
 
 globalvar guiPalette;
 guiPalette = guiCreate(0, 51, sidebarWidth+1, (340 - 50) + 6, guiScrolling, guiSidebar)
+
 with (guiPalette) {
     hasLine = true
 

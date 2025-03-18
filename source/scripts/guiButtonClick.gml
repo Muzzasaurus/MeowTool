@@ -17,6 +17,7 @@ switch (argument0) {
                 buildMode()
             }
         }
+
     }break
 
     case "change edit mode": {
