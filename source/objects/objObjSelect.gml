@@ -326,6 +326,148 @@ if (saving) {
     saveX=Player.x-16
     saveY=Player.y-16
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=605
+invert=0
+arg0=this is a port of all of those mouse events
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=408
+applies_to=self
+invert=0
+arg0=mode == "build"
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=422
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///give clicks give life
+if (mouse_check_button(mb_left)) {
+    if (mouse_check_button_pressed(mb_left))
+        z=0
+
+    if (insideScreen and selectedObj != noone  and
+        !mouse_check_button(mb_right) and !mouse_check_button(mb_middle)) {
+        if (!instance_place(targetX,targetY,selectedObj)) {
+            //Create object
+            o=instance_create(targetX,targetY,selectedObj)
+            //Add object creation info to array
+            createArray[z+2] = string(o.x) + "x" + string(o.y) + "y" + /*string(o.image_xscale) + "xs" + string(o.image_yscale) + "ys" +*/ string(o.object_index) + ","
+            z+=1
+            //Check for Ladder edge case
+            if (selectedObj == Ladder) {
+                if (o.plat != noone) {
+                    createArray[z+2] = string(o.x) + "x" + string(o.y) + "y" + /*string(o.image_xscale) + "xs" + string(o.image_yscale) + "ys" +*/ string(CustomSnap) + ","
+                    z+=1
+                }
+            }
+            changesMade=true
+        }
+    }
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///the mouse behind the slaughter
+if (mouse_check_button(mb_right)) {
+    if (mouse_check_button_pressed(mb_right))
+        zz=0
+
+    if (!mouse_check_button(mb_left) and !mouse_check_button(mb_middle)) {
+        obj=instance_position(mouse_xfixed,mouse_y,all)
+        while (obj != noone) {
+            deleteObj=false
+            if (objInPalette(obj.object_index)) and (obj.object_index != PlayerStart) {
+                deleteObj=true
+            }
+            if (deleteObj) {
+                deleteArray[zz+2] = string(obj.x) + "x" + string(obj.y) + "y" + /*string(obj.image_xscale) + "xs" + string(obj.image_yscale) + "ys" +*/ string(obj.object_index) + ","
+                zz+=1
+                changesMade=true
+                instance_destroy_id(obj)
+                obj=instance_position(mouse_xfixed,mouse_y,all)
+            } else {
+                obj=noone
+            }
+        }
+    }
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=424
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=421
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=422
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=408
+applies_to=self
+invert=0
+arg0=mode == "edit"
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=422
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///select/scaling
+if (mouse_check_button_pressed(mb_left)) {
+    if (!ds_list_empty(selectedObjects)) {
+        if (curInside(drawRight-10,drawBottom-10,drawRight+10,drawBottom+10)) {
+            scaling=true
+        }
+    }
+    if (!scaling) {
+        selectBoxX=mouse_xfixed
+        selectBoxY=mouse_y
+        selectBoxDraw=true
+    }
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///skbdidsiffdsa fdsa fsajlkaf jaskf jaslkfjlksajf sajflewa
+
+if (mouse_check_button_pressed(mb_right)) {
+    for (i=0; i<ds_list_size(selectedObjects); i+=1) {
+        instance=ds_list_find_value(selectedObjects,i)
+        instance.image_blend=c_white
+    }
+    ds_list_clear(selectedObjects)
+    drawTop=infinity
+    drawLeft=infinity
+    drawBottom=0
+    drawRight=0
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=424
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=424
+*/
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -344,6 +486,17 @@ if (selectedObj != noone) {
 #define Mouse_50
 /*"/*'/**//* YYD ACTION
 lib_id=1
+action_id=408
+applies_to=self
+invert=0
+arg0=false
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=422
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
 action_id=603
 applies_to=self
 */
@@ -353,23 +506,22 @@ if (mode == "build") {
         z=0
     }
 
-    if (instance_exists(objOpenMenu)) {
-        if ((insideScreen) and (selectedObj != noone)) and (!objOpenMenu.openMenu) and (!instance_exists(objPopup) and (!mouse_check_button(mb_right)) and (!mouse_check_button(mb_middle))) {
-            if ((!instance_place(targetX,targetY,selectedObj)) or (mouse_check_button_pressed(mb_left))) {
-                //Create object
-                o=instance_create(targetX,targetY,selectedObj)
-                //Add object creation info to array
-                createArray[z+2] = string(o.x) + "x" + string(o.y) + "y" + /*string(o.image_xscale) + "xs" + string(o.image_yscale) + "ys" +*/ string(o.object_index) + ","
-                z+=1
-                //Check for Ladder edge case
-                if (selectedObj == Ladder) {
-                    if (o.plat != noone) {
-                        createArray[z+2] = string(o.x) + "x" + string(o.y) + "y" + /*string(o.image_xscale) + "xs" + string(o.image_yscale) + "ys" +*/ string(CustomSnap) + ","
-                        z+=1
-                    }
+    if (insideScreen and selectedObj != noone  and
+        !mouse_check_button(mb_right) and !mouse_check_button(mb_middle)) {
+        if (!instance_place(targetX,targetY,selectedObj)) {
+            //Create object
+            o=instance_create(targetX,targetY,selectedObj)
+            //Add object creation info to array
+            createArray[z+2] = string(o.x) + "x" + string(o.y) + "y" + /*string(o.image_xscale) + "xs" + string(o.image_yscale) + "ys" +*/ string(o.object_index) + ","
+            z+=1
+            //Check for Ladder edge case
+            if (selectedObj == Ladder) {
+                if (o.plat != noone) {
+                    createArray[z+2] = string(o.x) + "x" + string(o.y) + "y" + /*string(o.image_xscale) + "xs" + string(o.image_yscale) + "ys" +*/ string(CustomSnap) + ","
+                    z+=1
                 }
-                changesMade=true
             }
+            changesMade=true
         }
     }
 } else if (mode == "edit") {
@@ -386,7 +538,22 @@ if (mode == "build") {
         }
     }
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=424
+*/
 #define Mouse_51
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=408
+applies_to=self
+invert=0
+arg0=false
+*/
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=422
+*/
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -431,6 +598,10 @@ if (mode == "build") {
         drawRight=0
     }
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=424
+*/
 #define Mouse_55
 /*"/*'/**//* YYD ACTION
 lib_id=1
