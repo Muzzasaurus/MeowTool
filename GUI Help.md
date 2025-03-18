@@ -1,7 +1,7 @@
 # the gui system
 this is a small little markdown document made to teach you about how the gui system works. i hope this helps!
 
-last updated 17/03/2025, AEST
+last updated 19/03/2025, AEST
 
 ## basic info
 all gui stuff gets created in the `guiInit` script, which is in `Scripts/GUI`. it usually starts like this:
@@ -38,13 +38,16 @@ this is a section that you can go to if youve forgotten something about an eleme
 the superclass for all of the other element types. doesnt really have much going for it.
 
 properties:
+* `width` (real): the width of the element. this (and `height`) is the most important one
+* `height` (real): the height of the element
 * `fillColor` (color): the fill color of the element
 * `lineColor` (color): the line color of the element
 * `hasFill` (bool): whether to fill the element or not
 * `hasLine` (bool): whether the element has an outline or not
 
 ### guiButton
-a button that you can press. what the button does after being clicked is handled in the `guiButtonClick` script.
+a button that you can press.
+what the button does after being clicked is handled in the `guiButtonClick` script, which is called with the value of `clickAction`.
 
 properties:
 * all of the properties of `guiElement`
@@ -58,7 +61,7 @@ read-only properties:
 * `primed` (bool): if the button is primed
 
 ### guiLabel
-a label that displays text. thats all it does.
+a label that displays text.
 
 properties:
 * all of the properties of `guiElement` (though some of them arent used)
@@ -77,9 +80,14 @@ properties:
 * `scrollY` (real): see `scrollX`
 * `scrollSpeed` (real): how much the element gets scrolled whenever the user scrolls the mouse
 
-### guiTexture
-displays a texture (sprite, background, or surface) with the specified dimensions.
+### guiSprite
+displays a sprite.
 
 properties:
-* all of the properties of `guiElement`
-* `texture` (texture): the texture that will be drawn
+* `width` (real): the width of the element
+* `height` (real): the height of the element
+* `sprite` (sprite): the sprite to display
+* `mode` (string): one of 3 scaling modes for the sprite, for when the sprites dimensions and the elements size dont match: "stretch", "square", and "none"
+* `subImage` (real): the image index used for drawing the sprite
+* `blend` (color): the image blend used for drawing the sprite
+* `alpha` (real): the image alpha used for drawing the sprite
