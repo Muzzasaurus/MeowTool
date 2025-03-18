@@ -4,7 +4,7 @@ this is a small little markdown document made to teach you about how the gui sys
 last updated 19/03/2025, AEST
 
 ## basic info
-all gui stuff gets created in the `guiInit` script, which is in `Scripts/GUI`. it usually starts like this:
+all gui stuff gets created in the `guiInit` script, which is in `Scripts/GUI/Init`. it usually starts like this:
 ```gml
 ///guiInit()
 global.guiMainLineColor = c_black
