@@ -5,13 +5,14 @@ guiSidebar = guiCreate(801, 0, sidebarWidth, global.height-1, guiElement, guiRoo
 guiSidebar.isSidebar = true
 
 globalvar guiPalette;
-guiPalette = guiCreate(0, 51, sidebarWidth, (340 - 50) + 6, guiScrolling, guiSidebar)
+guiPalette = guiCreate(0, 51, sidebarWidth+1, (340 - 50) + 6, guiScrolling, guiSidebar)
 with (guiPalette) {
     hasLine = true
 
     columns=6
     rows=14
-    scrollHeight = rows * 42
+    scrollHeight = rows * 42 + 2
+    scrollSpeed = 42
 
     var k; k=0
     for (i=0; i<rows; i+=1) {
