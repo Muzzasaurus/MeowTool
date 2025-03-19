@@ -78,7 +78,8 @@ properties:
 * `scrollX` (real): the current scrolling position. follows `actualScrollX`
 * `actualScrollY` (real): see `actualScrollX`
 * `scrollY` (real): see `scrollX`
-* `scrollSpeed` (real): how much the element gets scrolled whenever the user scrolls the mouse
+* `scrollRate` (real): how much the element gets scrolled whenever the user scrolls the mouse
+* `scrolLSpeed` (real): the speed that the element scrolls (1 = instant, 0 = doesnt scroll)
 
 ### guiSprite
 displays a sprite.

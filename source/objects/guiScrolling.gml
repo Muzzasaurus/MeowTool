@@ -14,7 +14,8 @@ scrollY = 0
 actualScrollX = 0
 actualScrollY = 0
 
-scrollSpeed = 20
+scrollRate = 20
+scrollSpeed = 0.5
 
 scrollWidth = 32
 scrollHeight = 40
@@ -30,17 +31,17 @@ applies_to=self
 if (mouseOver) {
     if (keyboard_check(vk_shift)) {
         if (mouse_wheel_down()) {
-            actualScrollX += scrollSpeed
+            actualScrollX += scrollRate
         }
         if (mouse_wheel_up()) {
-            actualScrollX -= scrollSpeed
+            actualScrollX -= scrollRate
         }
     } else {
         if (mouse_wheel_down()) {
-            actualScrollY += scrollSpeed
+            actualScrollY += scrollRate
         }
         if (mouse_wheel_up()) {
-            actualScrollY -= scrollSpeed
+            actualScrollY -= scrollRate
         }
     }
 }
@@ -52,8 +53,8 @@ scrollHeight = max(height, scrollHeight)
 actualScrollY = clamp(actualScrollY, 0, scrollHeight - height)
 actualScrollX = clamp(actualScrollX, 0, scrollWidth - width)
 
-scrollX += (actualScrollX - scrollX) / 2
-scrollY += (actualScrollY - scrollY) / 2
+scrollX += (actualScrollX - scrollX) * scrollSpeed
+scrollY += (actualScrollY - scrollY) * scrollSpeed
 #define Trigger_Draw GUI Element
 /*"/*'/**//* YYD ACTION
 lib_id=1
