@@ -20,6 +20,27 @@ hoverable = false
 
 //mouseOver is true when the element contains a hovered element
 mouseOver = false
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+
+//become purple guy and kill the children
+for (i=0;i<ds_list_size(children);i+=1) {
+    with (ds_list_find_value(children, i)) {
+        instance_destroy()
+    }
+}
+
+//become an orphan
+with (parent) {
+    ds_list_delete(children, ds_list_find_index(children, other.id))
+}
+
+//deallocate the list to save memory
+ds_list_destroy(children)
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -549,6 +549,7 @@
 	|guiLabel
 	|guiScrolling
 	|guiSprite
+	|guiWindow
 +Meow System
 	|objObjSelect
 	|objKeyLogger

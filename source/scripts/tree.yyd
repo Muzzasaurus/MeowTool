@@ -330,3 +330,4 @@
 	|guiButtonClick
 	|guiDrawChildren
 	|guiGetHover
+	|guiCreateWindow

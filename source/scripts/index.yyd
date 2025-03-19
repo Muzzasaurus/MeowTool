@@ -345,3 +345,4 @@ guiCreate
 drawTextBox
 guiButtonClick
 guiGetHover
+guiCreateWindow
