@@ -453,6 +453,8 @@
 |sprScaleButton
 |sprSwing
 |sprSwingRange
++GUI
+	|sprGuiCloseButton
 +Editor
 	|sprGuiButtonEditor
 	|sprGuiLabelEditor

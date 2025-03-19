@@ -314,6 +314,7 @@
 	|buildMode
 	|is_letter
 	|drawTextBox
+	|ds_list_swap
 |initialiseSelectables
 |objInPalette
 |findWord
@@ -324,10 +325,12 @@
 |stringGetLine
 |objCreateWithStringBackup
 +GUI
+	+Init
+		|guiInit
+		|guiPostInit
 	|guiLink
-	|guiInit
 	|guiCreate
+	|guiCreateWindow
 	|guiButtonClick
 	|guiDrawChildren
 	|guiGetHover
-	|guiCreateWindow

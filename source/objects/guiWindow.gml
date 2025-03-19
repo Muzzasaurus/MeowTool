@@ -20,6 +20,7 @@ dragging = false
 
 
 hoverable = true
+hasLine = true
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -29,9 +30,12 @@ applies_to=self
 if (hasTitleBar)
     if (titleBar.hover and mouse_check_button_pressed(mb_left))
         dragging = true
-else
-    if (content.hover and mouse_check_button_pressed(mb_left))
-        dragging = true
+
+if (mouseOver and mouse_check_button_pressed(mb_left))
+    with (parent) {
+        ds_list_delete(children, ds_list_find_index(children, other.id))
+        ds_list_add(children, other.id)
+    }
 
 if (mouse_check_button_released(mb_left))
     dragging = false
@@ -63,10 +67,12 @@ if (hasTitleBar) {
         closeButton = guiCreate(width-16, 0, 16, 16, guiButton, titleBar)
         closeButton.label = "X"
         closeButton.clickAction = "close window"
+        /*
+        closeButton.icon = guiCreate(1, 1, 16 - 2, 16 - 2, guiSprite, closeButton)
+        closeButton.icon.sprite = sprGuiCloseButton
+        */
     }
     content = guiCreate(0, 16, width, height-16, guiElement, id)
 } else {
     content = guiCreate(0, 0, width, height, guiElement, id)
-    content.hasLine = false
-    content.hoverable = true
 }

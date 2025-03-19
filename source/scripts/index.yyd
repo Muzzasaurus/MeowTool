@@ -346,3 +346,5 @@ drawTextBox
 guiButtonClick
 guiGetHover
 guiCreateWindow
+guiPostInit
+ds_list_swap
