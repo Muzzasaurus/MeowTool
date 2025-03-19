@@ -336,3 +336,4 @@
 	|guiButtonClick
 	|guiDrawChildren
 	|guiGetHover
+	|guiEndStep

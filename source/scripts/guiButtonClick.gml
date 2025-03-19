@@ -17,5 +17,17 @@ switch (argument0) {
                 buildMode()
             }
         }
-    }
+    }break
+
+    case "change edit mode": {
+        with (objObjSelect) {
+            with (objObjSelect) {
+                if (mode == "build") {
+                    editMode()
+                } else {
+                    buildMode()
+                }
+            }
+        }
+    }break
 }
