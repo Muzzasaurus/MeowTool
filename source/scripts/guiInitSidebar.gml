@@ -1,7 +1,7 @@
-var sidebarWidth; sidebarWidth = global.width - (800 + 2)
+var sidebarWidth; sidebarWidth = global.width - (800 + 1)
 
 globalvar guiSidebar;
-guiSidebar = guiCreate(801, 0, sidebarWidth, global.height-1, guiElement, guiRoot)
+guiSidebar = guiCreate(800, 0, sidebarWidth, global.height-1, guiElement, guiRoot)
 guiSidebar.isSidebar = true
 
 globalvar guiPalette;
@@ -12,7 +12,8 @@ with (guiPalette) {
     columns=6
     rows=14
     scrollHeight = rows * 42 + 2
-    scrollSpeed = 42
+    scrollRate = 42
+    scrollSpeed = 0.25
 
     var k; k=0
     for (i=0; i<rows; i+=1) {
@@ -34,3 +35,11 @@ with (guiPalette) {
 
 globalvar guiEditButton; guiEditButton = guiCreate(913 - 800, 8, 32, 32, guiButton, guiSidebar)
 guiEditButton.clickAction = "change edit mode"
+
+globalvar guiOpenMenu; guiOpenMenu = guiCreate(952 - 800, 5, 101, 38, guiButton, guiSidebar)
+guiOpenMenu.label = "Open Menu"
+guiOpenMenu.clickAction = "open menu"
+
+globalvar guiInfo; guiInfo = guiCreate(805 - 800, 5, 101, 38, guiButton, guiSidebar)
+guiInfo.label = "Info"
+guiInfo.clickAction = "open info"
