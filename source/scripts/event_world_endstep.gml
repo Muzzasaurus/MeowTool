@@ -76,3 +76,6 @@ if (maxclick!=0) {
         maxclick=0
     }
 }
+
+if (instance_exists(guiRoot))
+    guiEndStep()

@@ -347,3 +347,4 @@ guiButtonClick
 guiGetHover
 guiInitSidebar
 getPaletteObject
+guiEndStep

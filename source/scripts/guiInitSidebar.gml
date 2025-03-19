@@ -31,3 +31,6 @@ with (guiPalette) {
         }
     }
 }
+
+globalvar guiEditButton; guiEditButton = guiCreate(913 - 800, 8, 32, 32, guiButton, guiSidebar)
+guiEditButton.clickAction = "change edit mode"
