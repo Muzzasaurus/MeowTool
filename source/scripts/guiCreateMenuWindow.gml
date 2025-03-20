@@ -7,6 +7,10 @@ guiMenu.associatedGlobalVar = "guiMenu"
 content = guiMenu.content
 
 //TODO: add checkboxes
-b = guiCreate(150-floor(130/2), 20, 130, 20, guiButton, guiMenu.content)
+b = guiCreate(150-floor(130/2), 20, 130, 30, guiButton, content)
 b.clickAction = "toggle gridlines"
 b.label = "Toggle Grid-Lines"
+
+b = guiCreate(150-floor(130/2), content.height - (20 + 30), 130, 30, guiConfirmationButton, content)
+b.label = "Exit MeowTool"
+b.clickAction = "quit"

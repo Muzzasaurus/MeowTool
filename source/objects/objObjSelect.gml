@@ -162,7 +162,11 @@ if (keyboard_check_pressed(vk_escape)) {
     if (instance_exists(objPopup)) {
         with (objPopup) instance_destroy()
     } else {
-        objOpenMenu.openMenu=!objOpenMenu.openMenu
+        if (instance_exists(guiMenu)) {
+            instance_destroy_id(guiMenu)
+        } else {
+            guiCreateMenuWindow()
+        }
     }
 }
 //F2

@@ -550,6 +550,7 @@
 	|guiScrolling
 	|guiSprite
 	|guiWindow
+	|guiConfirmationButton
 +Meow System
 	|objObjSelect
 	|objKeyLogger

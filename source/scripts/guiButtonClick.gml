@@ -40,4 +40,8 @@ switch (argument0) {
         objObjSelect.drawGrid=!objObjSelect.drawGrid
         savedatap("grid",objObjSelect.drawGrid)
     }break
+
+    case "quit": {
+        event_game_end()
+    }break
 }
