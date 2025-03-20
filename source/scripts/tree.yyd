@@ -316,6 +316,7 @@
 	|drawTextBox
 	|ds_list_swap
 |initialiseSelectables
+|getPaletteObject
 |objInPalette
 |findWord
 |objCreateWithString
@@ -328,6 +329,7 @@
 	+Init
 		|guiInit
 		|guiPostInit
+		|guiInitSidebar
 	|guiLink
 	|guiCreate
 	|guiCreateWindow

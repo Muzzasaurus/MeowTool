@@ -20,6 +20,9 @@ hoverable = false
 
 //mouseOver is true when the element contains a hovered element
 mouseOver = false
+
+//guh
+isSidebar = false
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -73,7 +76,11 @@ if (hasFill) {
 
 if (hasLine) {
     draw_set_color(lineColor)
-    draw_rectangle(x, y, x+width, y+height, true)
+
+    if (isSidebar)
+        draw_line(x, y, x, y+height+1)
+    else
+        draw_rectangle(x, y, x+width, y+height, true)
 }
 
 draw_reset()
