@@ -353,5 +353,3 @@ ds_list_swap
 guiInitSidebar
 getPaletteObject
 guiEndStep
-guiInitSidebar
-getPaletteObject
