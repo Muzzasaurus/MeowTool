@@ -23,7 +23,7 @@ event_inherited()
 
 drawY=y+19-sprite_get_height(sprIndex)/2+sprite_get_yoffset(sprIndex)
 
-if (hover) {
+if (hover and mouse_y > objMenu.y + 256) {
     if (hoverTime = 1) fruitName = pick(irandom(2)+1, "Cherry", "Delicious Fruit", "Apple")
     global.tooltip = objGetToolTip(objIndex)
 
@@ -36,7 +36,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-if (!instance_exists(objPopup)) and ((!objOpenMenu.openMenu) and (primed) and (visible) and (objObjSelect.insidePalette)) {
+if (!instance_exists(objPopup) and (mouse_y > objMenu.y + 256) and (primed) and (visible) and (objObjSelect.insidePalette)) {
     objObjSelect.selectedObj=objIndex
     with (objObjSelect) {
         if (mode == "edit") {
