@@ -1,0 +1,1 @@
+globalvar guiMenu; guiMenu = noone

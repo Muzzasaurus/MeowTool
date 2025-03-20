@@ -330,6 +330,9 @@
 		|guiInit
 		|guiPostInit
 		|guiInitSidebar
+		|guiInitGlobals
+	+Spawners
+		|guiCreateMenuWindow
 	|guiLink
 	|guiCreate
 	|guiCreateWindow

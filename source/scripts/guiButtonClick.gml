@@ -31,4 +31,13 @@ switch (argument0) {
             }
         }
     }break
+
+    case "open menu": {
+        guiCreateMenuWindow()
+    }break
+
+    case "toggle gridlines": {
+        objObjSelect.drawGrid=!objObjSelect.drawGrid
+        savedatap("grid",objObjSelect.drawGrid)
+    }break
 }

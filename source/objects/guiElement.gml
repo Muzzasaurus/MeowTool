@@ -23,6 +23,9 @@ mouseOver = false
 
 //guh
 isSidebar = false
+
+//for when it gets destroyed
+associatedGlobalVar = ""
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -44,6 +47,10 @@ with (parent) {
 
 //deallocate the list to save memory
 ds_list_destroy(children)
+
+//cursed
+if (associatedGlobalVar != "")
+    execute_string(associatedGlobalVar + " = noone")
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

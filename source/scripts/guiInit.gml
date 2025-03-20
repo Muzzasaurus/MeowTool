@@ -13,6 +13,7 @@ guiWindowLayer.hasLine = false
 
 
 //modify the code past this comment
+guiInitGlobals()
 guiInitSidebar()
 
 
