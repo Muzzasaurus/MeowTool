@@ -562,3 +562,4 @@ guiScrolling
 guiSprite
 guiWindow
 guiConfirmationButton
+guiCheckBox

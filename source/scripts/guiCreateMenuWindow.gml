@@ -7,9 +7,19 @@ guiMenu.associatedGlobalVar = "guiMenu"
 content = guiMenu.content
 
 //TODO: add checkboxes
-b = guiCreate(150-floor(130/2), 20, 130, 30, guiButton, content)
-b.clickAction = "toggle gridlines"
-b.label = "Toggle Grid-Lines"
+b = guiCreate(20, 20, 32, 32, guiCheckBox, content)
+b.associatedObj = objObjSelect
+b.associatedVar = "drawGrid"
+b.save = true
+b.saveKey = "grid"
+b.label = "Grid-Lines"
+
+b = guiCreate(20, 20 + 32 + 5, 16, 16, guiCheckBox, content)
+b.associatedObj = objObjSelect
+b.associatedVar = "drawGrid"
+b.save = true
+b.saveKey = "grid"
+b.label = "Grid-Lines"
 
 b = guiCreate(150-floor(130/2), content.height - (20 + 30), 130, 30, guiConfirmationButton, content)
 b.label = "Exit MeowTool"

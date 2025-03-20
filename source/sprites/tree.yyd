@@ -455,6 +455,7 @@
 |sprSwingRange
 +GUI
 	|sprGuiCloseButton
+	|sprGuiCheckBoxIcon
 +Editor
 	|sprGuiButtonEditor
 	|sprGuiLabelEditor
