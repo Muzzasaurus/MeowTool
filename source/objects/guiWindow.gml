@@ -63,10 +63,12 @@ if (hasTitleBar) {
     titleBar.title = guiCreate(2, 0, width, 16, guiLabel, titleBar)
     titleBar.title.label = title
     titleBar.title.halign  = fa_left
+    titleBar.title.font = fntFullscreen
     if (hasCloseButton) {
         closeButton = guiCreate(width-16, 0, 16, 16, guiButton, titleBar)
         closeButton.label = "X"
         closeButton.clickAction = "close window"
+        closeButton.labelFont = fntFullscreen
         /*
         closeButton.icon = guiCreate(1, 1, 16 - 2, 16 - 2, guiSprite, closeButton)
         closeButton.icon.sprite = sprGuiCloseButton

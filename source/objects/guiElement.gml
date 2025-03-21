@@ -68,6 +68,7 @@ if (parent != noone) exit
 
 global.guiElementDepth = 0
 with (all) __guiDrawChildren_ran = false
+draw_set_font(fntGuiRegular)
 event_perform(ev_trigger, tr_element_draw)
 guiDrawChildren()
 #define Trigger_Draw GUI Element

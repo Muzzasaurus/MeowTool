@@ -10,6 +10,7 @@ action_id=603
 applies_to=self
 */
 label = ""
+labelFont = fntGuiRegular
 hoverFill = global.guiMainHoverFillColor
 primedFill = global.guiMainPrimedFillColor
 
@@ -41,6 +42,17 @@ if (hover) {
 } else {
     primed = false
 }
+#define Step_2
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if (clickAction == "open menu")
+    if (instance_exists(guiMenu))
+        label = "Close Menu"
+    else
+        label = "Open Menu"
 #define Trigger_Draw GUI Element
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -55,6 +67,7 @@ event_inherited()
 fillColor = oldFill
 
 draw_set_color(lineColor)
+draw_set_font(labelFont)
 drawTextBox(x, y, width, height, label, fa_center, fa_center)
 
 draw_reset()

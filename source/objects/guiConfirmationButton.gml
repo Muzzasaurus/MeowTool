@@ -72,6 +72,7 @@ if (confirmationState == 0) {
 event_inherit_object(guiElement)
 
 draw_set_color(lineColor)
+draw_set_font(labelFont)
 drawTextBox(x, y, width, height, label, fa_center, fa_center)
 
 fillColor = oldFill

@@ -33,7 +33,13 @@ switch (argument0) {
     }break
 
     case "open menu": {
-        guiCreateMenuWindow()
+        if (instance_exists(guiMenu)) {
+            instance_destroy_id(guiMenu)
+            label = "Open Menu"
+        } else {
+            guiCreateMenuWindow()
+            label = "Close Menu"
+        }
     }break
 
     case "toggle gridlines": {

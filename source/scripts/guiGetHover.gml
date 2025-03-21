@@ -7,9 +7,28 @@ var xx, yy;
 xx = argument0
 yy = argument1
 
+if (object_index == guiCheckBox) {
+    var oldWidth; oldWidth = width
+    var oldX; oldX = x
+
+    draw_set_font(fntGuiRegular)
+    width += labelPadding + string_width(label)
+    if (labelHalign == fa_right)
+        x -= width - oldWidth
+}
+
 if (not point_in_rectangle(mouse_xfixed, mouse_y, xx, yy, xx+width, yy+height)) {
     mouseOver = false
+    if (object_index == guiCheckBox) {
+        x = oldX
+        width = oldWidth
+    }
     return noone
+}
+
+if (object_index == guiCheckBox) {
+    x = oldX
+    width = oldWidth
 }
 
 mouseOver = true

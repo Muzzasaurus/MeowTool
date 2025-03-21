@@ -23,6 +23,7 @@ activated = false
 
 label = ""
 labelHalign = fa_left
+labelPadding = 4
 
 
 hoverable = true
@@ -143,9 +144,10 @@ draw_sprite(sprGuiCheckBoxIcon, activated, x+2, y+2)
 
 draw_set_color(lineColor)
 draw_set2(labelHalign, fa_center)
+draw_set_font(fntGuiRegular)
 if (labelHalign == fa_left)
-    draw_text(x+width + 3, y + height/2, label)
+    draw_text(x+width + labelPadding, y + height/2, label)
 else
-    draw_text(x - 3, y + height/2, label)
+    draw_text(x - labelPadding, y + height/2, label)
 
 draw_reset()
