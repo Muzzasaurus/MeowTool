@@ -1,5 +1,5 @@
 //profiler
-if (keyboard_check_pressed(vk_f3)) {
+if (new_keyboard_check_pressed(vk_f3)) {
     if (instance_exists(global.profiler_manager)) {
         instance_destroy_id(global.profiler_manager)
     } else {
@@ -8,12 +8,12 @@ if (keyboard_check_pressed(vk_f3)) {
 }
 
 //debug overlay
-if (keyboard_check_pressed(vk_backspace)) {
+if (new_keyboard_check_pressed(vk_backspace)) {
     global.debug_overlay=!global.debug_overlay
 }
 
 //execute code
-if (!debug_mode && keyboard_check_pressed(ord("E")) && keyboard_check(vk_control)) {
+if (!debug_mode && new_keyboard_check_pressed(ord("E")) && new_keyboard_check(vk_control)) {
     debug_execute_code=get_string("Enter code to execute:",debug_execute_code)
     execute_string(debug_execute_code)
 }
@@ -21,9 +21,9 @@ if (!debug_mode && keyboard_check_pressed(ord("E")) && keyboard_check(vk_control
 target_speed=global.game_speed
 
 //slowdown/speedup
-if (keyboard_check(ord("G"))) {
+if (new_keyboard_check(ord("G"))) {
     target_speed=global.game_speed/5
-} else if (keyboard_check(ord("F"))) {
+} else if (new_keyboard_check(ord("F"))) {
     target_speed=global.game_speed*5
 }
 
@@ -36,18 +36,18 @@ if (current_speed!=target_speed) {
 }
 
 if (is_ingame()) {
-    if (keyboard_check_pressed(vk_tab) || (keyboard_check(vk_shift) && keyboard_check(vk_tab))) {
+    if (new_keyboard_check_pressed(vk_tab) || (new_keyboard_check(vk_shift) && new_keyboard_check(vk_tab))) {
         move_player(mouse_xfixed,mouse_y,0)
         show_message_right("player to cursor")
         Player.speed=0
     }
 
-    if (keyboard_check_pressed(vk_insert)) {
+    if (new_keyboard_check_pressed(vk_insert)) {
         savedata_save(true,"debug save")
         show_message_right("debug save")
     }
 
-    if (keyboard_check_pressed(vk_delete)) {
+    if (new_keyboard_check_pressed(vk_delete)) {
         global.debug_hitbox=!global.debug_hitbox
         if (!global.debug_hitbox) {
             with (all) {
@@ -57,7 +57,7 @@ if (is_ingame()) {
         } else show_message_right("hitboxes on")
     }
 
-    if (keyboard_check_pressed(vk_home)) {
+    if (new_keyboard_check_pressed(vk_home)) {
         global.debug_god=!global.debug_god
         if (global.debug_god) show_message_right("god mode on")
         else {
@@ -67,25 +67,25 @@ if (is_ingame()) {
         }
     }
 
-    if (keyboard_check_pressed(vk_end)) {
+    if (new_keyboard_check_pressed(vk_end)) {
         global.debug_jump=!global.debug_jump
         if (global.debug_jump) show_message_right("infinite jump on")
         else show_message_right("infinite jump off")
     }
 
-    if (keyboard_check_pressed(vk_control)) {
+    if (new_keyboard_check_pressed(vk_control)) {
         with (Player) flip_player()
         sound_play_slomo("sndFlip")
         show_message_right("flip player")
     }
 
-    if (keyboard_check_pressed(vk_pageup) && room!=room_last) {
+    if (new_keyboard_check_pressed(vk_pageup) && room!=room_last) {
         instance_activate_all_safe()
         show_message_right("next room")
         warp_to(room_next(room))
     }
 
-    if (keyboard_check_pressed(vk_pagedown) && room!=global.first_room) {
+    if (new_keyboard_check_pressed(vk_pagedown) && room!=global.first_room) {
         instance_activate_all_safe()
         show_message_right("previous room")
         warp_to(room_previous(room))

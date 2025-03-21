@@ -11,7 +11,6 @@ applies_to=self
 */
 associatedVar = ""
 associatedObj = noone
-isGlobal = false
 
 save = false
 saveKey = ""
@@ -39,11 +38,10 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-if (isGlobal) {
-    activated = variable_global_get(associatedVar)
+if (associatedObj == noone) {
+    activated = getVar(associatedVar)
 } else {
-    with (associatedObj)
-        other.activated = variable_local_get(other.associatedVar)
+    activated = getVar(associatedVar, associatedObj)
 }
 
 if (hover) {
@@ -53,19 +51,15 @@ if (hover) {
 
     if (mouse_check_button_released(mb_left) and primed) {
         primed = false
-        if (isGlobal) {
-            variable_global_set(associatedVar, !activated)
-            if (save)
-                savedatap(saveKey, variable_global_get(associatedVar))
+        activated = !activated
+        if (associatedObj == noone) {
+            activated = setVar(activated, associatedVar)
         } else {
-            with (associatedObj) {
-                variable_local_set(other.associatedVar, not other.activated)
-                if (other.save)
-                    savedatap(other.saveKey, not other.activated)
-            }
+            activated = setVar(activated, associatedVar, associatedObj)
         }
 
-        activated = !activated
+        if (save)
+            savedatap(saveKey, activated)
     }
 } else {
     primed = false

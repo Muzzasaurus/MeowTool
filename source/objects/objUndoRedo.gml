@@ -15,7 +15,7 @@ action_id=603
 applies_to=self
 */
 ///Ctrl Z
-if (keyboard_check_pressed(ord("Z")) and keyboard_check(vk_control) and arrayPos > 0) {
+if (new_keyboard_check_pressed(ord("Z")) and new_keyboard_check(vk_control) and arrayPos > 0) {
     arrayPos-=1
     switch (undoArray[arrayPos,1]) {
         case "create":
@@ -144,7 +144,7 @@ action_id=603
 applies_to=self
 */
 ///Ctrl Y
-if (keyboard_check_pressed(ord("Y")) and keyboard_check(vk_control) and arrayPos < undoArrayLength) {
+if (new_keyboard_check_pressed(ord("Y")) and new_keyboard_check(vk_control) and arrayPos < undoArrayLength) {
     switch (undoArray[arrayPos,1]) {
         case "create":
             for (j=2; j<undoArray[arrayPos,0]; j+=1) {

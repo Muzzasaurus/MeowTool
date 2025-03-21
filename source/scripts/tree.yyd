@@ -315,6 +315,14 @@
 	|is_letter
 	|drawTextBox
 	|ds_list_swap
+	|getVar
+	|setVar
+	|string_segment
++new keyboard functions
+	|new_keyboard_check
+	|new_keyboard_check_pressed
+	|new_keyboard_check_released
+	|new_keyboard_check_direct
 |initialiseSelectables
 |getPaletteObject
 |objInPalette

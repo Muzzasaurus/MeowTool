@@ -47,7 +47,7 @@ if (key_restart(vi_pressed) && !global.no_restart && !frozen) {
 }
 
 //maker pause
-if (is_ingame() and keyboard_check_pressed(vk_space)) {
+if (is_ingame() and new_keyboard_check_pressed(vk_space)) {
     frozen=!frozen
 }
 
@@ -78,18 +78,18 @@ if (is_ingame() && !global.no_pause) {
 
 if (!global.no_quit) {
     //escape key
-    /*if (keyboard_check_pressed(vk_escape) || scheduled_close_button) {
+    /*if (new_keyboard_check_pressed(vk_escape) || scheduled_close_button) {
         event_game_end()
     }*/
     
     //close game
-    if (keyboard_check_pressed(vk_f4) && keyboard_check(vk_alt)) {
+    if (new_keyboard_check_pressed(vk_f4) && new_keyboard_check(vk_alt)) {
         event_game_end()
     }
     
     //go to title
     /*
-    if (keyboard_check_pressed(vk_f2)) {
+    if (new_keyboard_check_pressed(vk_f2)) {
         instance_activate_all_safe()
         if (is_ingame() and instance_exists(objObjSelect)) {
             if (!objObjSelect.changesMade) {
@@ -105,7 +105,7 @@ if (!global.no_quit) {
 }
 
 //toggle mute
-if (keyboard_check_pressed(ord("M"))) {
+if (new_keyboard_check_pressed(ord("M"))) {
     var storevol;storevol=settings("stored mus vol")
     settings("stored mus vol",settings("musvol"))
     settings("musvol",storevol)
@@ -115,7 +115,7 @@ if (keyboard_check_pressed(ord("M"))) {
 }
 
 //toggle fullscreen
-if ((keyboard_check(vk_alt) && keyboard_check_pressed(vk_return)) || keyboard_check_pressed(vk_f11) || (keyboard_check_pressed(vk_f4) && !keyboard_check(vk_alt))) {
+if ((new_keyboard_check(vk_alt) && new_keyboard_check_pressed(vk_return)) || new_keyboard_check_pressed(vk_f11) || (new_keyboard_check_pressed(vk_f4) && !new_keyboard_check(vk_alt))) {
     if (settings("fullscreen")) {
         if (settings("screenscale")!=1) window_delayed_center()
         settings("screenscale",1)
@@ -131,6 +131,6 @@ if ((keyboard_check(vk_alt) && keyboard_check_pressed(vk_return)) || keyboard_ch
 }
 
 //take a screenshot
-if (keyboard_check_pressed(vk_f9)) {
+if (new_keyboard_check_pressed(vk_f9)) {
     take_screenshot()
 }

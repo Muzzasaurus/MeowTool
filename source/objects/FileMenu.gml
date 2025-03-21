@@ -34,7 +34,7 @@ applies_to=self
 h=macro_leftright(vi_pressed)
 v=macro_updown(vi_pressed)
 
-if ((keyboard_check_pressed(ord("Z")) && keyboard_check(vk_control)) || keyboard_check_pressed(vk_f5)) {
+if ((new_keyboard_check_pressed(ord("Z")) && new_keyboard_check(vk_control)) || new_keyboard_check_pressed(vk_f5)) {
     sound_play("sndItem")
     savedata_read()
     state=""

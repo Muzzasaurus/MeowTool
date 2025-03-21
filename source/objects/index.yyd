@@ -563,3 +563,4 @@ guiSprite
 guiWindow
 guiConfirmationButton
 guiCheckBox
+guiTextInput

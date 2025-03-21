@@ -44,6 +44,13 @@ b.save = true
 b.saveKey = "trailView"
 b.label = "View Trail"
 
+yy += spacing
+
+b = guiCreate(20, yy, 128, 128, guiTextInput, content)
+b.text = "ohio"
+b.dummy = true
+b.multiLine = true
+
 
 b = guiCreate(150-floor(130/2), content.height - (20 + 30), 130, 30, guiConfirmationButton, content)
 b.label = "Exit MeowTool"

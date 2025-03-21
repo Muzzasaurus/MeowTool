@@ -34,4 +34,4 @@ if (view_enabled) with (World) {
 } else d3d_set_projection_default()
 
 //debug see whole room mode
-if (global.test_run && keyboard_check(vk_f8)) d3d_set_projection_ortho(0,0,room_width,room_height,0)
+if (global.test_run && new_keyboard_check(vk_f8)) d3d_set_projection_ortho(0,0,room_width,room_height,0)

@@ -545,14 +545,15 @@
 	|objDepthOrderPopup
 +New GUI
 	|guiElement
-	|guiLabel
-	|guiScrolling
-	|guiSprite
-	|guiWindow
 	+Clickables
 		|guiButton
 		|guiConfirmationButton
 		|guiCheckBox
+	|guiLabel
+	|guiScrolling
+	|guiSprite
+	|guiWindow
+	|guiTextInput
 +Meow System
 	|objObjSelect
 	|objKeyLogger

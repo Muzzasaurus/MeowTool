@@ -60,7 +60,7 @@ if (is_ingame() && room!=global.difficulty_room) {
 if (global.test_run) {
     debug_keys()
 }
-if (keyboard_check_pressed(vk_f3)) {
+if (new_keyboard_check_pressed(vk_f3)) {
     if (instance_exists(global.profiler_manager)) {
         instance_destroy_id(global.profiler_manager)
     } else {
@@ -68,7 +68,7 @@ if (keyboard_check_pressed(vk_f3)) {
     }
 }
 //gui debugger
-if (keyboard_check(vk_control) and keyboard_check_pressed(ord("A"))) { global.guiDebug = not global.guiDebug }
+if (new_keyboard_check(vk_control) and new_keyboard_check_pressed(ord("A"))) { global.guiDebug = not global.guiDebug }
 
 system_hotkeys()
 

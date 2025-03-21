@@ -1,7 +1,7 @@
 var dw;dw=display_get_gui_width()
 
 if (!global.pause) {
-    if ((keyboard_check(vk_tab) || debug_mode || fps_real<global.game_speed*0.95) && is_ingame()) {
+    if ((new_keyboard_check(vk_tab) || debug_mode || fps_real<global.game_speed*0.95) && is_ingame()) {
         str=string(fps_fast)
         fpsa=min(1.5,fpsa+0.05)
     } else {
@@ -73,7 +73,7 @@ draw_window_caption()
 
 with (global.profiler_manager) event_user(0)
 
-if (global.test_run) if (keyboard_check(vk_control) && keyboard_check(ord("S"))) {
+if (global.test_run) if (new_keyboard_check(vk_control) && new_keyboard_check(ord("S"))) {
     //surface debugger
     var wx,wy,i,dx,dy;
     wx=window_mouse_get_x()

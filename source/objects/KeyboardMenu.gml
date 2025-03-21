@@ -70,7 +70,7 @@ if (waiting) {
         }
     }
 } else {
-    if (keyboard_check_pressed(vk_anykey)) {
+    if (new_keyboard_check_pressed(vk_anykey)) {
         key=keyboard_key
         if (key==160 || key==161) key=16 //shift
 

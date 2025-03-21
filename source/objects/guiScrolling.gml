@@ -29,7 +29,7 @@ action_id=603
 applies_to=self
 */
 if (mouseOver) {
-    if (keyboard_check(vk_shift)) {
+    if (new_keyboard_check(vk_shift)) {
         if (mouse_wheel_down()) {
             actualScrollX += scrollRate
         }

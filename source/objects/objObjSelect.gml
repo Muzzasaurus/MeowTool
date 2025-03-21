@@ -106,11 +106,11 @@ applies_to=self
 */
 ///Hotkeys
 //0-9
-if (keyboard_check_pressed(ord("1"))) {
+if (new_keyboard_check_pressed(ord("1"))) {
     if (selectedObj == Block) selectedObj=MiniBlock
     else selectedObj=Block
 }
-if (keyboard_check_pressed(ord("2"))) {
+if (new_keyboard_check_pressed(ord("2"))) {
     i=-1
     switch (selectedObj) {
         case SpikeU: i=1 break
@@ -121,7 +121,7 @@ if (keyboard_check_pressed(ord("2"))) {
     if (i != -1) selectedObj=spikeArray[i]
     else selectedObj=SpikeU
 }
-if (keyboard_check_pressed(ord("3"))) {
+if (new_keyboard_check_pressed(ord("3"))) {
     i=-1
     switch (selectedObj) {
         case MiniSpikeUp: i=1 break
@@ -133,7 +133,7 @@ if (keyboard_check_pressed(ord("3"))) {
     else selectedObj=MiniSpikeUp
 }
 //Tab and W
-if (keyboard_check_pressed(ord("W"))) or (keyboard_check_pressed(vk_tab)) {
+if (new_keyboard_check_pressed(ord("W"))) or (new_keyboard_check_pressed(vk_tab)) {
     savedata_load()
     dead=0
     instance_destroy_id(BloodEmitter)
@@ -143,11 +143,11 @@ if (keyboard_check_pressed(ord("W"))) or (keyboard_check_pressed(vk_tab)) {
     move_player(mouse_xfixed,mouse_y,0)
 }
 //S
-if (keyboard_check_pressed(ord("S"))) {
+if (new_keyboard_check_pressed(ord("S"))) {
     saving=true
 }
 //G
-if (keyboard_check_pressed(ord("G"))) {
+if (new_keyboard_check_pressed(ord("G"))) {
     if (grid > 8) {
         grid = round(grid/2)
     } else {
@@ -158,7 +158,7 @@ if (keyboard_check_pressed(ord("G"))) {
     }
 }
 //Esc
-if (keyboard_check_pressed(vk_escape)) {
+if (new_keyboard_check_pressed(vk_escape)) {
     if (instance_exists(objPopup)) {
         with (objPopup) instance_destroy()
     } else {
@@ -170,7 +170,7 @@ if (keyboard_check_pressed(vk_escape)) {
     }
 }
 //F2
-if (keyboard_check_pressed(vk_f2)) {
+if (new_keyboard_check_pressed(vk_f2)) {
     if (!objObjSelect.changesMade) {
         resetRoom()
     } else if (!instance_exists(objPopup)) {
@@ -220,7 +220,7 @@ applies_to=self
 */
 ///Switch to edit mode
 //if (key_edit(vi_pressed)) {
-if (keyboard_check_pressed(ord("E"))) {
+if (new_keyboard_check_pressed(ord("E"))) {
     if (mode == "build") {
         editMode()
     } else {
@@ -282,7 +282,7 @@ applies_to=self
 */
 ///deleting stuff in edit mode
 
-if (mode == "edit" and keyboard_check_pressed(vk_delete)) {
+if (mode == "edit" and new_keyboard_check_pressed(vk_delete)) {
     repeat (ds_list_size(selectedObjects)) {
         instance_destroy_id(ds_list_find_value(selectedObjects, 0))
         ds_list_delete(selectedObjects, 0)
