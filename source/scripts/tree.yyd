@@ -317,7 +317,8 @@
 	|ds_list_swap
 	|getVar
 	|setVar
-	|string_segment
+	|string_purify
+	|string_curse
 +new keyboard functions
 	|new_keyboard_check
 	|new_keyboard_check_pressed
@@ -341,10 +342,12 @@
 		|guiInitGlobals
 	+Spawners
 		|guiCreateMenuWindow
+	+Internal
+		|guiDrawChildren
+		|guiGetHover
+		|guiEndStep
+		|guiTextInputGetCursorX
 	|guiLink
 	|guiCreate
 	|guiCreateWindow
 	|guiButtonClick
-	|guiDrawChildren
-	|guiGetHover
-	|guiEndStep

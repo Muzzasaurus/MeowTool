@@ -15,7 +15,7 @@ while (curLine <= line) {
     }
 
     char += 1
-    if (string_char_at(str, char) == "#") {
+    if (string_purify(string_char_at(str, char)) == lf) {
         curLine += 1
         char += 1
     }

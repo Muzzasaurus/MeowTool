@@ -50,61 +50,81 @@ if (mouse_check_button_pressed(mb_left)) {
 
 if (active) {
     if (keyboard_check_pressed(vk_anykey)) {
-        switch (keyboard_key) {
-            case vk_backspace: {
-                var newText; newText = ""
+        if (keyboard_check_pressed(vk_enter)) {
+            text = string_insert(real_lf, text, cursorPos+1)
+            cursorPos += 1
+        } else if keyboard_check_pressed(vk_backspace) {
+            text = string_delete(text, cursorPos, 1)
+            cursorPos = max(0, cursorPos - 1)
+        } else if keyboard_check_pressed(vk_delete) {
+            text = string_delete(text, cursorPos+1, 1)
+        } else if keyboard_check_pressed(vk_left) {
+            cursorPos = max(0, cursorPos - 1)
+        } else if keyboard_check_pressed(vk_right) {
+            cursorPos = min(string_length(text), cursorPos + 1)
+        } else if keyboard_check_pressed(vk_down) {
+            var xx; xx = guiTextInputGetCursorX()
 
-                var i; i = 1
-                while (i <= string_length(text)) {
-                    if (i != cursorPos)
-                        newText += string_char_at(text, i)
-                    i += 1
-                }
-                text = newText
-
-                cursorPos = max(0, cursorPos - 1)
-            } break
-
-            case vk_delete: {
-                var newText; newText = ""
-
-                var i; i = 1
-                while (i <= string_length(text)) {
-                    if (i != cursorPos + 1)
-                        newText += string_char_at(text, i)
-                    i += 1
-                }
-                text = newText
-            } break
-
-            case vk_enter: {
-                if (multiLine) {
-                    text = string_insert("#", text, cursorPos+1)
-
-                    cursorPos += 1
-                }
-                else {
-                    active=false
-                    global.inputtingText=false
-                }
-            } break
-
-            case vk_shift: break
-            case vk_control: break
-            case vk_alt: break
-
-            case vk_left: cursorPos = max(0, cursorPos - 1); break
-            case vk_right: cursorPos = min(string_length(text), cursorPos + 1); break
-
-            default: {
-                if (keyboard_lastkey == ord("#")) {
-                    text = string_insert("e", text, cursorPos+1)
-                } else {
-                    text = string_insert(keyboard_lastchar, text, cursorPos+1)
-                }
-
+            do {
                 cursorPos += 1
-            } break
+            } until (string_char_at(text, cursorPos) == real_lf or cursorPos > string_length(text))
+
+            if (cursorPos > string_length(text))  {
+                cursorPos = string_length(text)
+                break
+            }
+
+            if (xx != 0)
+                cursorPos += 1
+
+            repeat (xx - 1) {
+                if (string_char_at(text, cursorPos) == real_lf) {
+                    cursorPos -= 1
+                    break
+                }
+
+                cursorPos = min(string_length(text), cursorPos + 1)
+            }
+        } else if keyboard_check_pressed(vk_up) {
+            var xx; xx = guiTextInputGetCursorX()
+
+            if (xx == cursorPos) {
+                cursorPos = 0
+                break
+            }
+
+            var argh; argh = 0
+            repeat (2) {
+                while !(string_char_at(text, cursorPos) == real_lf or cursorPos <= 0) {
+                    cursorPos = max(0, cursorPos - 1)
+                }
+
+                if (argh == 0)
+                    cursorPos = max(0, cursorPos - 1)
+
+                argh += 1
+            }
+
+            if (xx != 0)
+                cursorPos += 1
+
+            ///*
+            repeat (xx - 1) {
+                if (string_char_at(text, cursorPos) == real_lf) {
+                    cursorPos -= 1
+                    break
+                }
+
+                cursorPos = min(string_length(text), cursorPos + 1)
+            }
+            //*/
+        } else if (keyboard_lastkey == vk_control or
+                   keyboard_lastkey == vk_alt or
+                   keyboard_lastkey == vk_shift) {
+            string(254)
+        } else {
+            text = string_insert(keyboard_lastchar, text, cursorPos+1)
+            cursorPos += 1
         }
     }
 }
@@ -125,9 +145,14 @@ var pad; pad = 2
 d3d_transform_stack_push()
     d3d_transform_add_translation(pad, pad, 0)
     d3d_transform_add_translation(x, y, 0)
-    drawTextBox(0, 0, width-pad*2, height-pad*2, text, fa_left, fa_top)
+    drawTextBox(0, 0, width-pad*2, height-pad*2, string_curse(text), fa_left, fa_top)
 
     if (active) {
-        draw_line(string_width("a") * cursorPos, string_height("a"), string_width("a") * cursorPos, 0)
+        var cursorLine; cursorLine = string_count(real_lf, string_copy(text, 0, cursorPos))
+        d3d_transform_add_translation(0, string_height("a") * cursorLine, 0)
+
+        var xx; xx = guiTextInputGetCursorX()
+
+        draw_line(string_width("a") * xx, string_height("a"), string_width("a") * xx, 0)
     }
 d3d_transform_stack_pop()
