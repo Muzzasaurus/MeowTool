@@ -9,11 +9,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-associatedVar = ""
-associatedObj = noone
-
-save = false
-saveKey = ""
+linkInit()
 
 activatedFill = $f8a6ff
 //NOTE: activatedLine is only used for the checkmark
@@ -38,11 +34,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-if (associatedObj == noone) {
-    activated = getVar(associatedVar)
-} else {
-    activated = getVar(associatedVar, associatedObj)
-}
+activated = linkGet()
 
 if (hover) {
     if (mouse_check_button_pressed(mb_left)) {
@@ -52,14 +44,7 @@ if (hover) {
     if (mouse_check_button_released(mb_left) and primed) {
         primed = false
         activated = !activated
-        if (associatedObj == noone) {
-            activated = setVar(activated, associatedVar)
-        } else {
-            activated = setVar(activated, associatedVar, associatedObj)
-        }
-
-        if (save)
-            savedatap(saveKey, activated)
+        linkSet(activated)
     }
 } else {
     primed = false

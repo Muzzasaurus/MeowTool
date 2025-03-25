@@ -10,7 +10,10 @@ for (i=1;i<=string_length(oldStr);i+=1) {
         str += "#"
         i+=1
     } else if (string_char_at(oldStr, i) == "#") {
-        str += linefeed
+        str += lineFeed
+    } else if (string_copy(oldStr, i, 2) == lf and lineFeed == real_lf) {
+        str += lineFeed
+        i += 1
     } else {
         str += string_char_at(oldStr, i)
     }

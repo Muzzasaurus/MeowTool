@@ -365,3 +365,7 @@ new_keyboard_check_direct
 string_purify
 string_curse
 guiTextInputGetCursorX
+linkInit
+linkGet
+
+linkSet

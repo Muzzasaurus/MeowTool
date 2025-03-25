@@ -6,3 +6,5 @@ globalvar guiRoot; guiRoot = noone
 global.guiMouseHovering = noone
 
 global.inputtingText = false
+
+savedatap("foo", "bar")

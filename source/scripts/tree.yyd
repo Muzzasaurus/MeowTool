@@ -351,3 +351,7 @@
 	|guiCreate
 	|guiCreateWindow
 	|guiButtonClick
++Linking
+	|linkInit
+	|linkGet
+	|linkSet

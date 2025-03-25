@@ -11,15 +11,15 @@ applies_to=self
 */
 active = false
 
-associatedVar = ""
-associatedObj = noone
-save = false
-saveKey = ""
+linkInit()
 
 dummy = false
 text = ""
 
 multiLine = false
+
+//TODO: string_better doesnt seem to be working correctly. investigate later.
+cast = "string"
 
 fillColor = c_white
 hoverable = true
@@ -39,12 +39,15 @@ applies_to=self
 */
 if (mouse_check_button_pressed(mb_left)) {
     if (hover) {
-        active = true
-        global.inputtingText = true
-        cursorPos = string_length(text)
+        if (!active) {
+            active = true
+            global.inputtingText = true
+            text = string_better(linkGet())
+            cursorPos = string_length(text)
+        }
     } else {
-        active=false
-        global.inputtingText=false
+        if (active)
+            event_user(0)
     }
 }
 
@@ -78,12 +81,11 @@ if (active) {
                 cursorPos += 1
 
             repeat (xx - 1) {
+                cursorPos = min(string_length(text), cursorPos + 1)
                 if (string_char_at(text, cursorPos) == real_lf) {
                     cursorPos -= 1
                     break
                 }
-
-                cursorPos = min(string_length(text), cursorPos + 1)
             }
         } else if keyboard_check_pressed(vk_up) {
             var xx; xx = guiTextInputGetCursorX()
@@ -110,23 +112,71 @@ if (active) {
 
             ///*
             repeat (xx - 1) {
+                cursorPos = min(string_length(text), cursorPos + 1)
                 if (string_char_at(text, cursorPos) == real_lf) {
                     cursorPos -= 1
                     break
                 }
-
-                cursorPos = min(string_length(text), cursorPos + 1)
             }
             //*/
         } else if (keyboard_lastkey == vk_control or
                    keyboard_lastkey == vk_alt or
                    keyboard_lastkey == vk_shift) {
+
             string(254)
         } else {
             text = string_insert(keyboard_lastchar, text, cursorPos+1)
             cursorPos += 1
         }
     }
+}
+#define Step_2
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if (!active) {
+    if (!dummy)
+        text = string(linkGet())
+}
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///ran when deselected
+
+active=false
+global.inputtingText=false
+if (!dummy) {
+    if (cast == "string")
+        linkSet(text)
+    else if (cast == "real" or cast == "int") {
+        var dot, newText;
+        dot = false
+        newText = ""
+        for (i=1; i <= string_length(text); i+=1) {
+            if (string_char_at(text, i) == ".") {
+                if (dot or cast == "int") {/*i+=1;*/ continue;}
+                dot = true
+
+                newText += "."
+            }
+            if (string_digits(string_char_at(text, i)) == "") {
+                //i+=1
+                continue
+            }
+
+            newText += string_char_at(text, i)
+        }
+
+        linkSet(real(newText))
+    } else
+        show_error(
+        'Unkown type to cast to: "' + cast + '"' + lf
+        + 'Available cast types are: "string", "real", and "int"', true)
 }
 #define Trigger_Draw GUI Element
 /*"/*'/**//* YYD ACTION
@@ -145,7 +195,8 @@ var pad; pad = 2
 d3d_transform_stack_push()
     d3d_transform_add_translation(pad, pad, 0)
     d3d_transform_add_translation(x, y, 0)
-    drawTextBox(0, 0, width-pad*2, height-pad*2, string_curse(text), fa_left, fa_top)
+
+    drawTextBox(0, 0, width-pad*2, height-pad*2,string_curse(string_better(text), false), fa_left, fa_top)
 
     if (active) {
         var cursorLine; cursorLine = string_count(real_lf, string_copy(text, 0, cursorPos))
