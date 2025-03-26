@@ -1,13 +1,22 @@
-///changeSkin(increment)
-inc=argument0
+///changeSkin(increment/skin name)
+var inc; inc=argument0
 
 //remove previous skins
 if (bg != noone) {
     background_delete(bg)
     bg=noone
 }
-//update skin num
-savedatap("textureSkin",modwrap(savedata("textureSkin")+inc,0,savedata("skinCount")))
+
+if (is_real(inc)) {
+    var skinIndex; skinIndex = ds_list_find_index(global.skinsList, savedatap("currentSkin"))
+    skinIndex += inc
+    if (skinIndex >= ds_list_size(global.skinsList)) skinIndex = 0
+    if (skinIndex < 0) skinIndex = ds_list_size(global.skinsList)
+    savedatap("currentSkin", ds_list_find_value(global.skinsList, skinIndex))
+} else {
+    savedatap("currentSkin", inc)
+}
+
 
 //replace background
 bgDir = checkSkinsFolder("bg")

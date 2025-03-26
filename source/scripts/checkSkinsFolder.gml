@@ -1,6 +1,6 @@
 ///checkSkinsFolder(file)
 file=argument0
-check=objSkinManager.folders[savedatap("textureSkin")] + file + ".png"
+check=global.skinDir + savedatap("currentSkin") + "\" + file + ".png"
 if (file_exists(check)) {
     return check
 } else {

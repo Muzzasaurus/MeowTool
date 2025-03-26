@@ -1,12 +1,21 @@
 ///loadSkins()
-i=0
-skinDir=global.datadir+"skins\"
-for (file=file_find_first(skinDir+"*",fa_directory);file!="";file=file_find_next()) {
-    if (directory_exists(skinDir+file) and file!="." and file!="..") {
-        folders[i]=skinDir+file+"\"
+//loads all of the skins
+
+var i; i=0
+
+global.skinDir=global.datadir+"skins\"
+global.skinsList = ds_list_create()
+
+for (dir=file_find_first(global.skinDir+"*",fa_directory);dir!="";dir=file_find_next()) {
+    if (directory_exists(global.skinDir+dir) and dir!="." and dir!="..") {
+        folders[i]=global.skinDir+dir+"\"
+        ds_list_add(global.skinsList, dir)
+
         i+=1
     }
 }
 file_find_close()
-savedatap("skinCount",i)
-if (savedatap("textureSkin") > savedatap("skinCount",i)) savedatap("textureSkin",0)
+global.skinCount = i
+if (is_real(savedatap("currentSkin"))) {
+    savedatap("currentSkin", "meowtool_default")
+}

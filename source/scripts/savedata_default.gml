@@ -30,6 +30,7 @@ savedatap("godMode",false)
 savedatap("infJump",false)
 savedatap("trailView",false)
 savedatap("textureSkin",0)
+savedatap("currentSkin","meowtool_default")
 savedatap("skinCount",0)
 savedatap("trailLength",51)
 

@@ -10,6 +10,19 @@ bg=noone
 defaultDir="data\skins\default\"
 str=""
 changeSkin(0)
+#define Mouse_6
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+var str; str = get_string("What skin do you want to switch to?", "meowtool_default")
+
+if (ds_list_find_index(global.skinsList, str) == -1) {
+    show_message('Skin "' + str + '"' + "doesn't exist.")
+} else {
+    changeSkin(str)
+}
 #define Mouse_7
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -52,7 +65,7 @@ draw_rectangle(x,y,x+width-1,y+height-1,1)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 if (!global.pause) {
-    str=string_lettersdigits(string_replace(objSkinManager.folders[savedatap("textureSkin")],"data\skins\",""))
+    str=savedatap("currentSkin")
 }
 draw_text(x+width/2,y+height/2,"Current Skin:#" + str)
 draw_set_valign(fa_top)
