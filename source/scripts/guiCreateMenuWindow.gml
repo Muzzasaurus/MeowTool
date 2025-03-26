@@ -50,7 +50,7 @@ b = guiCreate(20, yy, 128, 128, guiTextInput, content)
 b.linkSave = true
 b.linkSaveKey = "foo"
 
-b.multiLine = true
+b.multiLine = false
 
 
 b = guiCreate(150-floor(130/2), content.height - (20 + 30), 130, 30, guiConfirmationButton, content)

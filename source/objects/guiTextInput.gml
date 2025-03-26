@@ -54,8 +54,12 @@ if (mouse_check_button_pressed(mb_left)) {
 if (active) {
     if (keyboard_check_pressed(vk_anykey)) {
         if (keyboard_check_pressed(vk_enter)) {
-            text = string_insert(real_lf, text, cursorPos+1)
-            cursorPos += 1
+            if (multiLine) {
+                text = string_insert(real_lf, text, cursorPos+1)
+                cursorPos += 1
+            } else {
+                event_user(0)
+            }
         } else if keyboard_check_pressed(vk_backspace) {
             text = string_delete(text, cursorPos, 1)
             cursorPos = max(0, cursorPos - 1)
@@ -121,6 +125,29 @@ if (active) {
             //*/
         } else if (keyboard_lastkey == vk_control or
                    keyboard_lastkey == vk_alt or
+                   keyboard_lastkey == vk_alt or
+                   keyboard_lastkey == vk_tab or
+                   keyboard_lastkey == vk_caps or
+                   keyboard_lastkey == vk_printscreen or
+                   keyboard_lastkey == vk_home or
+                   keyboard_lastkey == vk_pageup or
+                   keyboard_lastkey == vk_pagedown or
+                   keyboard_lastkey == vk_insert or
+                   keyboard_lastkey == vk_end or
+                   keyboard_lastkey == vk_alt or
+                   keyboard_lastkey == vk_f1 or
+                   keyboard_lastkey == vk_f2 or
+                   keyboard_lastkey == vk_f3 or
+                   keyboard_lastkey == vk_f4 or
+                   keyboard_lastkey == vk_f5 or
+                   keyboard_lastkey == vk_f6 or
+                   keyboard_lastkey == vk_f7 or
+                   keyboard_lastkey == vk_f8 or
+                   keyboard_lastkey == vk_f9 or
+                   keyboard_lastkey == vk_f10 or
+                   keyboard_lastkey == vk_f11 or
+                   keyboard_lastkey == vk_f12 or
+                   keyboard_lastkey == vk_pause or
                    keyboard_lastkey == vk_shift) {
 
             string(254)
