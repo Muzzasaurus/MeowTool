@@ -134,3 +134,8 @@ if ((new_keyboard_check(vk_alt) && new_keyboard_check_pressed(vk_return)) || new
 if (new_keyboard_check_pressed(vk_f9)) {
     take_screenshot()
 }
+
+//open console
+if (new_keyboard_check(vk_alt) and new_keyboard_check(vk_control) and new_keyboard_check_pressed(ord("C"))) {
+    guiCreate(global.width/2 - 500/2, 608/2 - 300/2, -1, -1, guiConsole, guiWindowLayer)
+}

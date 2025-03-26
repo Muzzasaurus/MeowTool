@@ -555,6 +555,8 @@
 	|guiWindow
 	|guiTextInput
 	|guiDropdown
+	+Custom
+		|guiConsole
 +Meow System
 	|objObjSelect
 	|objKeyLogger

@@ -565,3 +565,4 @@ guiConfirmationButton
 guiCheckBox
 guiTextInput
 guiDropdown
+guiConsole

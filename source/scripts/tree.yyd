@@ -352,6 +352,8 @@
 		|guiCreate
 		|guiCreateWindow
 		|guiDropdownAdd
+	+Custom
+		|print
 	|guiButtonClick
 +Linking
 	|linkInit

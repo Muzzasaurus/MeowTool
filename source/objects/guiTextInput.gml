@@ -24,6 +24,8 @@ cast = "string"
 fillColor = c_white
 hoverable = true
 
+textColor = c_black
+
 
 cursorPos = 0
 #define Step_1
@@ -216,7 +218,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-draw_set_color(c_black)
+draw_set_color(textColor)
 draw_set_font(fntMonoTextBox)
 var pad; pad = 2
 d3d_transform_stack_push()
@@ -234,3 +236,5 @@ d3d_transform_stack_push()
         draw_line(string_width("a") * xx, string_height("a"), string_width("a") * xx, 0)
     }
 d3d_transform_stack_pop()
+
+draw_reset()

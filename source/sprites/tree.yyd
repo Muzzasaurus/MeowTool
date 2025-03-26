@@ -463,4 +463,5 @@
 	|sprGuiScrollingEditor
 	|sprGuiSpriteEditor
 	|sprGuiWindowEditor
-|sprGuiTextInputEditor
+	|sprGuiTextInputEditor
+	|sprGuiConsoleEditor
