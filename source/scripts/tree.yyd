@@ -347,9 +347,11 @@
 		|guiGetHover
 		|guiEndStep
 		|guiTextInputGetCursorX
-	|guiLink
-	|guiCreate
-	|guiCreateWindow
+	+Modifiers
+		|guiLink
+		|guiCreate
+		|guiCreateWindow
+		|guiDropdownAdd
 	|guiButtonClick
 +Linking
 	|linkInit

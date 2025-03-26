@@ -369,3 +369,4 @@ linkInit
 linkGet
 
 linkSet
+guiDropdownAdd

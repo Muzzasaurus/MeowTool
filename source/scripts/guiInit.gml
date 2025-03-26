@@ -10,6 +10,9 @@ guiRoot.hasLine = false
 globalvar guiWindowLayer; guiWindowLayer = guiCreate(0, 0, 10000, 10000, guiElement, guiRoot)
 guiWindowLayer.hasFill = false
 guiWindowLayer.hasLine = false
+globalvar guiDropdownLayer; guiDropdownLayer = guiCreate(0, 0, 10000, 10000, guiElement, guiRoot)
+guiDropdownLayer.hasFill = false
+guiDropdownLayer.hasLine = false
 
 
 //modify the code past this comment

@@ -49,7 +49,10 @@ for (i=ds_list_size(children)-1; i >= 0; i-=1) {
     }
 }
 
-if (hoverable)
+global.guiMouseHoveringX = mouse_xfixed - xx
+global.guiMouseHoveringY = mouse_y - yy
+
+if (hoverable) {
     return id
-else
+} else
     return noone

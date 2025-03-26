@@ -564,3 +564,4 @@ guiWindow
 guiConfirmationButton
 guiCheckBox
 guiTextInput
+guiDropdown

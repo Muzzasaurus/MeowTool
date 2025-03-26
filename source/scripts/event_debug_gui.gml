@@ -43,8 +43,8 @@ if (global.debug_overlay) {
             +"RAM: "+string(ram_usage/1024/1024)+"MB#"
     }
 
-    str+=string_repeat("God mode#",global.debug_god)
-        +string_repeat("Inf jump#",global.debug_jump)
+    str += "Local Mouse X: " + string(global.guiMouseHoveringX) + "#"
+    str += "Local Mouse Y: " + string(global.guiMouseHoveringY) + "#"
 
     var c;c=0
     for (i=0;i<100;i+=1) if (surface_exists(i)) c+=1
