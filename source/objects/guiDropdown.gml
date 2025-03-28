@@ -29,6 +29,7 @@ itemStates = ds_list_create()
 hoverable = true
 hoveredItem = -1
 
+halign = fa_left
 
 vpad = 4
 #define Destroy_0
@@ -86,6 +87,16 @@ if (hover) {
         yy += h + vpad * 2
     }
 }
+#define Step_2
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+draw_set_font(fntGuiRegular)
+var h; h = string_height("h")
+
+height = (h + vpad * 2) * ds_list_size(itemLabels)
 #define Trigger_Draw GUI Element
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -105,14 +116,22 @@ var dy; dy = 0
 var h; h = string_height("h")
 
 draw_set_color(lineColor)
-draw_set_halign(fa_right)
+draw_set_halign(halign)
 for (i=0; i < ds_list_size(itemLabels); i+=1) {
     if (i == hoveredItem) {
         draw_rect(x, y + dy, width, h + vpad*2, global.guiMainHoverFillColor)
     }
-    draw_text(x + width - 4, y + dy + vpad, ds_list_find_value(itemLabels, i))
+
+    if (halign == fa_right)
+        draw_text(x + width - 4, y + dy + vpad, ds_list_find_value(itemLabels, i))
+    else
+        draw_text(x +  4, y + dy + vpad, ds_list_find_value(itemLabels, i))
+
     if (ds_list_find_value(itemTypes, i) == "toggle") {
-        guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + vpad, y + vpad, h, h)
+        if (halign == fa_right)
+            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + vpad, y + vpad, h, h)
+        else
+            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + width - (vpad + h), y + vpad, h, h)
     }
     dy += h + vpad * 2
 }
