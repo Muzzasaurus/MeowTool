@@ -1,4 +1,4 @@
-var sidebarWidth; sidebarWidth = global.width - (800 + 1)
+var sidebarWidth; sidebarWidth = global.width - (800 - 1)
 
 globalvar guiSidebar;
 guiSidebar = guiCreate(800, 0, sidebarWidth, global.height-1, guiElement, guiRoot)
@@ -12,7 +12,7 @@ with (guiPalette) {
 
     columns=6
     rows=14
-    scrollHeight = rows * 42 + 2
+    scrollHeight = rows * 42 + 3 - 1
     scrollRate = 42
     scrollSpeed = 0.25
 
@@ -26,7 +26,7 @@ with (guiPalette) {
                 clickAction = "select object"
                 label = ""
 
-                icon = guiCreate(4, 4, 32, 32, guiSprite, self)
+                icon = guiCreate(3, 3, 32, 32, guiSprite, self)
                 icon.sprite = object_get_sprite(objIndex)
                 icon.mode = "none"
             }

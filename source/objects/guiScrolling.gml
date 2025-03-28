@@ -87,7 +87,7 @@ surface_free(childSurface)
 
 if (hasLine) {
     draw_set_color(lineColor)
-    draw_rectangle(x, y, x+width, y+height, true)
+    draw_rect_line(x, y, width, height, true)
 }
 
 if (global.guiDebug) {

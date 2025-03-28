@@ -79,7 +79,7 @@ applies_to=self
 */
 if (hasFill) {
     draw_set_color(fillColor)
-    draw_rectangle(x, y, x+width, y+height, false)
+    draw_rect(x, y, width, height, draw_get_color())
 }
 
 if (hasLine) {
@@ -88,7 +88,7 @@ if (hasLine) {
     if (isSidebar)
         draw_line(x, y, x, y+height+1)
     else
-        draw_rectangle(x, y, x+width, y+height, true)
+        draw_rect_line(x, y, width, height)
 }
 
 draw_reset()

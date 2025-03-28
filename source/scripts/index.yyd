@@ -374,3 +374,4 @@ print
 guiSetThing
 guiGetThing
 guiDrawBool
+draw_rect_line

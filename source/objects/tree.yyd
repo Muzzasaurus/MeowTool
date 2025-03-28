@@ -555,7 +555,7 @@
 	|guiWindow
 	|guiTextInput
 	|guiDropdown
-	+Custom
+	+Programs
 		|guiConsole
 +Meow System
 	|objObjSelect

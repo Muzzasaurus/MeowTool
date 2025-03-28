@@ -119,7 +119,7 @@ if (activated) {
 }
 */
 
-draw_sprite(sprGuiCheckBoxIcon, activated, x+2, y+2)
+guiDrawBool(activated, x + 2, y + 2, width - 4, height - 4)
 
 draw_set_color(lineColor)
 draw_set2(labelHalign, fa_center)

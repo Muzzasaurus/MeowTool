@@ -28,6 +28,9 @@ itemStates = ds_list_create()
 
 hoverable = true
 hoveredItem = -1
+
+
+vpad = 4
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -64,7 +67,7 @@ hoveredItem = -1
 if (hover) {
     var yy; yy = 0
     for (i=0; i < ds_list_size(itemLabels); i+=1) {
-        if (global.guiMouseHoveringY > yy and global.guiMouseHoveringY < yy + h+6) {
+        if (global.guiMouseHoveringY > yy and global.guiMouseHoveringY < yy + h+vpad*2) {
             if (mouse_check_button_pressed(mb_left)) {
                 switch (ds_list_find_value(itemTypes, i)) {
                     case "bool":
@@ -80,7 +83,7 @@ if (hover) {
             hoveredItem = i
             break
         }
-        yy += h + 6
+        yy += h + vpad * 2
     }
 }
 #define Trigger_Draw GUI Element
@@ -91,8 +94,7 @@ applies_to=self
 */
 //feel
 if (hasFill) {
-    draw_set_color(fillColor)
-    draw_rectangle(x, y, x+width, y+height, false)
+    draw_rect(x, y, width, height, fillColor)
 }
 
 
@@ -106,21 +108,20 @@ draw_set_color(lineColor)
 draw_set_halign(fa_right)
 for (i=0; i < ds_list_size(itemLabels); i+=1) {
     if (i == hoveredItem) {
-        draw_rect(x, y + dy, width, h + 6, global.guiMainHoverFillColor)
+        draw_rect(x, y + dy, width, h + vpad*2, global.guiMainHoverFillColor)
     }
-    draw_text(x + width - 3, y + dy + 3, ds_list_find_value(itemLabels, i))
+    draw_text(x + width - 4, y + dy + vpad, ds_list_find_value(itemLabels, i))
     if (ds_list_find_value(itemTypes, i) == "toggle") {
-        guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + 3, y + 3, h, h)
+        guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + vpad, y + vpad, h, h)
     }
-    dy += h + 6
+    dy += h + vpad * 2
 }
 
 
 //outline!!!
 
 if (hasLine) {
-    draw_set_color(lineColor)
-    draw_rectangle(x, y, x+width, y+height, true)
+    draw_rect_line(x, y, width, height, lineColor)
 }
 
 draw_reset()

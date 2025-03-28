@@ -74,7 +74,7 @@ if (hasTitleBar) {
         closeButton.icon.sprite = sprGuiCloseButton
         */
     }
-    content = guiCreate(0, 16, width, height-16, guiElement, id)
+    content = guiCreate(0, 15, width, height-15, guiElement, id)
 } else {
     content = guiCreate(0, 0, width, height, guiElement, id)
 }

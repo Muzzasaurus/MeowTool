@@ -319,6 +319,7 @@
 	|setVar
 	|string_purify
 	|string_curse
+	|draw_rect_line
 +new keyboard functions
 	|new_keyboard_check
 	|new_keyboard_check_pressed
@@ -353,7 +354,7 @@
 		|guiCreate
 		|guiCreateWindow
 		|guiDropdownAdd
-	+Custom
+	+Programs
 		|print
 	|guiButtonClick
 	|guiSetThing
