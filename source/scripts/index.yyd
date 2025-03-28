@@ -375,3 +375,5 @@ guiSetThing
 guiGetThing
 guiDrawBool
 draw_rect_line
+guiDropdownTest
+guiDropdownGetHovered

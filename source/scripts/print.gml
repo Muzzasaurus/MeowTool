@@ -1,4 +1,4 @@
 ///print(text)
 //prints text to guiConsole
 
-guiConsole.log += argument0 + lf
+guiConsole.log += string(argument0) + lf

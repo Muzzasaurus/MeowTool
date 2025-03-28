@@ -31,7 +31,14 @@ hoveredItem = -1
 
 halign = fa_left
 
-vpad = 4
+vpad = 2
+
+dropdownChild = noone
+dropdownChildItem = -1
+dropdownParent = noone
+closeTimer = 0
+
+hoveredItem = -2
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -50,6 +57,10 @@ ds_list_destroy(itemLabels)
 ds_list_destroy(itemGetters)
 ds_list_destroy(itemSetters)
 ds_list_destroy(itemStates)
+
+with (dropdownParent) {
+    dropdownChild = noone
+}
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -61,7 +72,18 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-draw_set_font(fntGuiRegular)
+if (!instance_exists(dropdownParent) and dropdownParent != noone) {
+    instance_destroy()
+    exit
+}
+
+var dropdownHover; dropdownHover = guiDropdownGetHovered()
+
+if (dropdownParent != noone) {
+    //print(dropdownHover)
+}
+
+draw_set_font(fntGuiSmall)
 var h; h = string_height("h")
 
 hoveredItem = -1
@@ -79,6 +101,12 @@ if (hover) {
                     case "button": {
                         guiButtonClick(guiGetThing(ds_list_find_value(itemGetters, i)))
                     } break
+                    case "dropdown": {
+                        with (dropdownChild) instance_destroy()
+                        dropdownChild = script_execute(ds_list_find_value(itemGetters, i), x + width, y+yy)
+                        dropdownChild.dropdownParent = id
+                        dropdownChildItem = i
+                    } break
                 }
             }
             hoveredItem = i
@@ -87,16 +115,33 @@ if (hover) {
         yy += h + vpad * 2
     }
 }
+
+/*
+if (dropdownChild != noone) {
+    hoveredItem = dropdownChildItem
+}
+*/
+
+if (not dropdownHover) {
+    closeTimer += 1
+} else {
+    closeTimer = 0
+}
+
+if (closeTimer >= 10) {
+    instance_destroy()
+}
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-draw_set_font(fntGuiRegular)
+draw_set_font(fntGuiSmall)
 var h; h = string_height("h")
 
 height = (h + vpad * 2) * ds_list_size(itemLabels)
+width = 150
 #define Trigger_Draw GUI Element
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -110,7 +155,7 @@ if (hasFill) {
 
 
 //drawing the labels
-draw_set_font(fntGuiRegular)
+draw_set_font(fntGuiSmall)
 
 var dy; dy = 0
 var h; h = string_height("h")
@@ -122,6 +167,12 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
         draw_rect(x, y + dy, width, h + vpad*2, global.guiMainHoverFillColor)
     }
 
+    /*
+    if (i == dropdownChildItem) {
+        draw_rect(x, y + dy, width, h + vpad*2, c_red)
+    }
+    */
+
     if (halign == fa_right)
         draw_text(x + width - 4, y + dy + vpad, ds_list_find_value(itemLabels, i))
     else
@@ -129,9 +180,9 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
 
     if (ds_list_find_value(itemTypes, i) == "toggle") {
         if (halign == fa_right)
-            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + vpad, y + vpad, h, h)
+            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + vpad, y + vpad + dy, h, h)
         else
-            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + width - (vpad + h), y + vpad, h, h)
+            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + width - (vpad + h), y + vpad + dy, h, h)
     }
     dy += h + vpad * 2
 }
