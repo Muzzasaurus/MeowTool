@@ -65,6 +65,18 @@ if (hover) {
     var yy; yy = 0
     for (i=0; i < ds_list_size(itemLabels); i+=1) {
         if (global.guiMouseHoveringY > yy and global.guiMouseHoveringY < yy + h+6) {
+            if (mouse_check_button_pressed(mb_left)) {
+                switch (ds_list_find_value(itemTypes, i)) {
+                    case "bool":
+                    case "toggle": {
+                        guiSetThing(ds_list_find_value(itemSetters, i), !guiGetThing(ds_list_find_value(itemGetters, i)))
+                    } break
+                    case "action":
+                    case "button": {
+                        guiButtonClick(guiGetThing(ds_list_find_value(itemGetters, i)))
+                    } break
+                }
+            }
             hoveredItem = i
             break
         }
@@ -91,11 +103,15 @@ var dy; dy = 0
 var h; h = string_height("h")
 
 draw_set_color(lineColor)
+draw_set_halign(fa_right)
 for (i=0; i < ds_list_size(itemLabels); i+=1) {
     if (i == hoveredItem) {
         draw_rect(x, y + dy, width, h + 6, global.guiMainHoverFillColor)
     }
-    draw_text(x + 3, y + dy + 3, ds_list_find_value(itemLabels, i))
+    draw_text(x + width - 3, y + dy + 3, ds_list_find_value(itemLabels, i))
+    if (ds_list_find_value(itemTypes, i) == "toggle") {
+        guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + 3, y + 3, h, h)
+    }
     dy += h + 6
 }
 
@@ -106,3 +122,5 @@ if (hasLine) {
     draw_set_color(lineColor)
     draw_rectangle(x, y, x+width, y+height, true)
 }
+
+draw_reset()

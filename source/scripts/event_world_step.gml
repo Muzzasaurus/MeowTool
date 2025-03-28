@@ -57,7 +57,7 @@ if (is_ingame() && room!=global.difficulty_room) {
 }
 
 //debug keys
-if (global.test_run or true) {
+if (global.test_run) {
     debug_keys()
 }
 if (new_keyboard_check_pressed(vk_f3)) {

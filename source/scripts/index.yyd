@@ -371,3 +371,6 @@ linkGet
 linkSet
 guiDropdownAdd
 print
+guiSetThing
+guiGetThing
+guiDrawBool

@@ -10,7 +10,7 @@ action_id=603
 applies_to=self
 */
 title = "Cat's Console"
-width = 400
+width = 500
 height = 300
 
 event_user(0)
@@ -42,7 +42,7 @@ if (command != "") {
     print("> " + command)
 
     var opCode; opCode = string_copy(command, 1, string_pos(" ", command)-1)
-    if (string_count(" ", command) == 0) opCode = command
+    if (string_count(" ", command) == 0) { opCode = command; argString = "" }
     var argString; argString = string_copy(command, string_pos(" ", command)+1, 999999)
 
     if (opCode == "execute")
@@ -54,7 +54,7 @@ if (command != "") {
     else if (command == "help") {
         print("crash (inCRedibly bAd SHell) v0.1")
         print("commands:")
-        print("help [topic]")
+        print("help [topic] (topics arent implemented yet, sorry!!!)")
         print("execute [code]")
         print("echo [text]")
         print("clear")
@@ -86,6 +86,6 @@ applies_to=self
 draw_set_font(fntMonoTextBox)
 draw_set_color(c_white)
 draw_set2(fa_left, fa_bottom)
-draw_text(x+3, y+height - 23, log)
+draw_text(x+3, y+height - 23, string_curse(log, true))
 
 draw_reset()

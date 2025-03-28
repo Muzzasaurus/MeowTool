@@ -347,6 +347,7 @@
 		|guiGetHover
 		|guiEndStep
 		|guiTextInputGetCursorX
+		|guiDrawBool
 	+Modifiers
 		|guiLink
 		|guiCreate
@@ -355,6 +356,8 @@
 	+Custom
 		|print
 	|guiButtonClick
+	|guiSetThing
+	|guiGetThing
 +Linking
 	|linkInit
 	|linkGet

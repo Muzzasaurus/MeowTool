@@ -50,4 +50,10 @@ switch (argument0) {
     case "quit": {
         event_game_end()
     }break
+
+    case "save map": {
+        if(saveMap()) {
+            objObjSelect.changesMade=false
+        }
+    }break
 }
