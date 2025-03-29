@@ -39,6 +39,8 @@ dropdownParent = noone
 closeTimer = 0
 
 hoveredItem = -2
+
+timeToClose = 25
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -128,7 +130,7 @@ if (not dropdownHover) {
     closeTimer = 0
 }
 
-if (closeTimer >= 10) {
+if (closeTimer >= timeToClose) {
     instance_destroy()
 }
 #define Step_2
@@ -178,12 +180,26 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
     else
         draw_text(x +  4, y + dy + vpad, ds_list_find_value(itemLabels, i))
 
-    if (ds_list_find_value(itemTypes, i) == "toggle") {
+    if (ds_list_find_value(itemTypes, i) == "toggle" or ds_list_find_value(itemTypes, i) == "bool") {
         if (halign == fa_right)
             guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + vpad, y + vpad + dy, h, h)
         else
             guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + width - (vpad + h), y + vpad + dy, h, h)
     }
+
+    if (ds_list_find_value(itemTypes, i) == "dropdown") {
+        var _x, _y, _s;
+        _s = h -1
+        _y = y + vpad + dy + 1
+        if (halign == fa_right)
+            _x = x + vpad
+        else
+            _x = x + width - (vpad + h)
+
+        draw_line(_x+_s/2, _y     , _x+_s  , _y+_s/2)
+        draw_line(_x+_s/2, _y+_s-1, _x+_s  , _y+_s/2-1)
+    }
+
     dy += h + vpad * 2
 }
 

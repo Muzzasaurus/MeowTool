@@ -5,6 +5,8 @@ with (argument0) {
     ds_list_add(itemGetters, argument3)
     if (argument_count>4)
         ds_list_add(itemSetters, argument[4])
+    else
+        ds_list_add(itemSetters, 0)
 
     ds_list_add(itemStates, 0)
 }
