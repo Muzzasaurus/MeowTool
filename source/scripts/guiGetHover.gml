@@ -1,11 +1,14 @@
 ///guiGetHover(x, y)
-//gets what the mouse is currently hovering over
+//gets what the mouse is currently hovering over, but also gets the elements screen position
 //very slow, only call this once a frame!!!
 
 //this script makes my head hurt :(
 var xx, yy;
 xx = argument0
 yy = argument1
+
+screenX = xx + x
+screenY = yy + y
 
 if (object_index == guiCheckBox) {
     var oldWidth; oldWidth = width

@@ -105,7 +105,12 @@ if (hover) {
                     } break
                     case "dropdown": {
                         with (dropdownChild) instance_destroy()
-                        dropdownChild = script_execute(ds_list_find_value(itemGetters, i), x + width, y+yy)
+                        if (halign == fa_left)
+                            dropdownChild = script_execute(ds_list_find_value(itemGetters, i), x + width, y+yy)
+                        else
+                            dropdownChild = script_execute(ds_list_find_value(itemGetters, i), x - 150, y+yy)
+
+                        dropdownChild.halign = halign
                         dropdownChild.dropdownParent = id
                         dropdownChildItem = i
                     } break
@@ -196,8 +201,13 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
         else
             _x = x + width - (vpad + h)
 
-        draw_line(_x+_s/2, _y     , _x+_s  , _y+_s/2)
-        draw_line(_x+_s/2, _y+_s-1, _x+_s  , _y+_s/2-1)
+        if (halign == fa_left) {
+            draw_line(_x+_s/2, _y     , _x+_s  , _y+_s/2)
+            draw_line(_x+_s/2, _y+_s-1, _x+_s  , _y+_s/2-1)
+        } else {
+            draw_line(_x+_s/2, _y     , _x  , _y+_s/2)
+            draw_line(_x+_s/2, _y+_s-1, _x  , _y+_s/2-1)
+        }
     }
 
     dy += h + vpad * 2

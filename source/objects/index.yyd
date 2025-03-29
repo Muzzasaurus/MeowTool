@@ -566,3 +566,4 @@ guiCheckBox
 guiTextInput
 guiDropdown
 guiConsole
+guiNavBar

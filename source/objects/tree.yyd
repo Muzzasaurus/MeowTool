@@ -555,6 +555,7 @@
 	|guiWindow
 	|guiTextInput
 	|guiDropdown
+	|guiNavBar
 	+Programs
 		|guiConsole
 +Meow System

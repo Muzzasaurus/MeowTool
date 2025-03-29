@@ -34,6 +34,7 @@ with (guiPalette) {
     }
 }
 
+/*
 globalvar guiEditButton; guiEditButton = guiCreate(913 - 800, 8, 32, 32, guiButton, guiSidebar)
 guiEditButton.clickAction = "change edit mode"
 
@@ -44,3 +45,9 @@ guiOpenMenu.clickAction = "open menu"
 globalvar guiInfo; guiInfo = guiCreate(805 - 800, 5, 101, 38, guiButton, guiSidebar)
 guiInfo.label = "Info"
 guiInfo.clickAction = "open info"
+*/
+
+var bar; bar = guiCreate(0, 20, sidebarWidth, 99, guiNavBar, guiSidebar)
+
+guiDropdownAdd(bar, "File", "dropdown", guiDropdownTest)
+guiDropdownAdd(bar, "File... Again", "dropdown", guiDropdownTest)
