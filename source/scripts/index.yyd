@@ -377,3 +377,9 @@ guiDrawBool
 draw_rect_line
 guiDropdownTest
 guiDropdownGetHovered
+guiDropdownFile
+guiDropdownInit
+guiDropdownPlayer
+guiDropdownPlayerTrail
+guiDropdownAddList
+guiDropdownKillChain

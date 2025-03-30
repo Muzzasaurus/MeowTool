@@ -24,7 +24,8 @@ itemTypes = ds_list_create()
 itemGetters = ds_list_create()
 itemSetters = ds_list_create()
 
-itemStates = ds_list_create()
+itemExtra1 = ds_list_create()
+itemExtra2 = ds_list_create()
 
 hoverable = true
 hoveredItem = -1
@@ -58,7 +59,8 @@ ds_list_destroy(itemTypes)
 ds_list_destroy(itemLabels)
 ds_list_destroy(itemGetters)
 ds_list_destroy(itemSetters)
-ds_list_destroy(itemStates)
+ds_list_destroy(itemExtra1)
+ds_list_destroy(itemExtra2)
 
 with (dropdownParent) {
     dropdownChild = noone
@@ -97,18 +99,20 @@ if (hover) {
                 switch (ds_list_find_value(itemTypes, i)) {
                     case "bool":
                     case "toggle": {
-                        guiSetThing(ds_list_find_value(itemSetters, i), !guiGetThing(ds_list_find_value(itemGetters, i)))
+                        guiSetThing(ds_list_find_value(itemSetters, i), !guiGetThing(ds_list_find_value(itemGetters, i), i), i)
+                        guiDropdownKillChain()
                     } break
                     case "action":
                     case "button": {
                         guiButtonClick(guiGetThing(ds_list_find_value(itemGetters, i)))
+                        guiDropdownKillChain()
                     } break
                     case "dropdown": {
                         with (dropdownChild) instance_destroy()
                         if (halign == fa_left)
                             dropdownChild = script_execute(ds_list_find_value(itemGetters, i), x + width, y+yy)
                         else
-                            dropdownChild = script_execute(ds_list_find_value(itemGetters, i), x - 150, y+yy)
+                            dropdownChild = script_execute(ds_list_find_value(itemGetters, i), x, y+yy)
 
                         dropdownChild.halign = halign
                         dropdownChild.dropdownParent = id
@@ -148,7 +152,18 @@ draw_set_font(fntGuiSmall)
 var h; h = string_height("h")
 
 height = (h + vpad * 2) * ds_list_size(itemLabels)
-width = 150
+for (i=0; i < ds_list_size(itemLabels); i+=1) {
+    var w; w = string_width(ds_list_find_value(itemLabels, i))
+    if (i == 0) width = w
+    else width = max(width, w)
+}
+
+width += 8
+width += h
+width += 4
+
+if (halign == fa_right)
+    x = xstart - width
 #define Trigger_Draw GUI Element
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -187,9 +202,13 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
 
     if (ds_list_find_value(itemTypes, i) == "toggle" or ds_list_find_value(itemTypes, i) == "bool") {
         if (halign == fa_right)
-            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + vpad, y + vpad + dy, h, h)
+            guiDrawBool(
+                guiGetThing(ds_list_find_value(itemGetters, i), i),
+                x + vpad,
+                y + vpad + dy,
+                h, h)
         else
-            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i)), x + width - (vpad + h), y + vpad + dy, h, h)
+            guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i), i), x + width - (vpad + h), y + vpad + dy, h, h)
     }
 
     if (ds_list_find_value(itemTypes, i) == "dropdown") {

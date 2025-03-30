@@ -350,15 +350,21 @@
 		|guiTextInputGetCursorX
 		|guiDrawBool
 		|guiDropdownGetHovered
+		|guiDropdownKillChain
 	+Modifiers
 		|guiLink
 		|guiCreate
 		|guiCreateWindow
 		|guiDropdownAdd
+		|guiDropdownInit
+		|guiDropdownAddList
 	+Programs
 		|print
 	+Dropdowns
 		|guiDropdownTest
+		|guiDropdownFile
+		|guiDropdownPlayer
+		|guiDropdownPlayerTrail
 	|guiButtonClick
 	|guiSetThing
 	|guiGetThing

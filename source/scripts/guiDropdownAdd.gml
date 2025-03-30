@@ -8,5 +8,8 @@ with (argument0) {
     else
         ds_list_add(itemSetters, 0)
 
-    ds_list_add(itemStates, 0)
+    ds_list_add(itemExtra1, 0)
+    ds_list_add(itemExtra2, 0)
+
+    return ds_list_size(itemLabels)-1
 }

@@ -47,7 +47,7 @@ guiInfo.label = "Info"
 guiInfo.clickAction = "open info"
 */
 
-var bar; bar = guiCreate(0, 20, sidebarWidth, 99, guiNavBar, guiSidebar)
+var bar; bar = guiCreate(0, 0, sidebarWidth, 99, guiNavBar, guiSidebar)
 
-guiDropdownAdd(bar, "File", "dropdown", guiDropdownTest)
-guiDropdownAdd(bar, "File... Again", "dropdown", guiDropdownTest)
+guiDropdownAdd(bar, "File", "dropdown", guiDropdownFile)
+guiDropdownAdd(bar, "Player", "dropdown", guiDropdownPlayer)

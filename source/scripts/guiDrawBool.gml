@@ -10,7 +10,7 @@ h  = argument4
 if (argument0) {
     draw_line(xx, yy+h/2, xx+w/2, yy+h)
     draw_line(xx+w/2, yy+h, xx+w, yy)
-} else {
+} else if (false) {
     draw_line(xx, yy, xx+w, yy+h)
     draw_line(xx, yy+h, xx+w, yy)
 }

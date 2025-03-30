@@ -51,9 +51,19 @@ switch (argument0) {
         event_game_end()
     }break
 
-    case "save map": {
+    case "saveMapAs": {
         if(saveMap()) {
             objObjSelect.changesMade=false
         }
     }break
+
+    case "loadMap": {
+        if (!objObjSelect.changesMade) {
+            loadMap()
+        } else if (!instance_exists(objPopup)) {
+            o=instance_create(0,0,objPopup)
+            o.txt="Map has been edited, are#do you want to discard these changes?"
+            o.scr=loadMap
+        }
+    } break
 }

@@ -61,7 +61,7 @@ if (hover) {
                     } break
                     case "dropdown": {
                         with (dropdownChild) instance_destroy()
-                        dropdownChild = script_execute(ds_list_find_value(itemGetters, i), (screenX + xx + w + hpad * 2) - 150, y+height)
+                        dropdownChild = script_execute(ds_list_find_value(itemGetters, i), (screenX + xx + w + hpad * 2), y+height)
                         dropdownChild.halign = fa_right
                         dropdownChild.dropdownParent = id
                         dropdownChildItem = i
