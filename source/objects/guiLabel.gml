@@ -21,6 +21,6 @@ applies_to=self
 */
 draw_set_color(lineColor)
 draw_set_font(font)
-drawTextBox(x, y, width, height, label, halign, valign)
+drawTextBox(0, 0, width, height, label, halign, valign)
 
 draw_reset()

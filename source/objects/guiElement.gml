@@ -79,16 +79,16 @@ applies_to=self
 */
 if (hasFill) {
     draw_set_color(fillColor)
-    draw_rect(x, y, width, height, draw_get_color())
+    draw_rect(0, 0, width, height, draw_get_color())
 }
 
 if (hasLine) {
     draw_set_color(lineColor)
 
     if (isSidebar)
-        draw_line(x, y, x, y+height+1)
+        draw_line(0, 0, 0, height+1)
     else
-        draw_rect_line(x, y, width, height)
+        draw_rect_line(0, 0, width, height)
 }
 
 draw_reset()

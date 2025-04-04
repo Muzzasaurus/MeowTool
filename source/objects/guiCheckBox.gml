@@ -119,14 +119,14 @@ if (activated) {
 }
 */
 
-guiDrawBool(activated, x + 2, y + 2, width - 4, height - 4)
+guiDrawBool(activated, 2, 2, width - 4, height - 4)
 
 draw_set_color(lineColor)
 draw_set2(labelHalign, fa_center)
 draw_set_font(fntGuiRegular)
 if (labelHalign == fa_left)
-    draw_text(x+width + labelPadding, y + height/2, label)
+    draw_text(width + labelPadding, height/2, label)
 else
-    draw_text(x - labelPadding, y + height/2, label)
+    draw_text(-labelPadding, height/2, label)
 
 draw_reset()

@@ -172,7 +172,7 @@ applies_to=self
 */
 //feel
 if (hasFill) {
-    draw_rect(x, y, width, height, fillColor)
+    draw_rect(0, 0, width, height, fillColor)
 }
 
 
@@ -186,7 +186,7 @@ draw_set_color(lineColor)
 draw_set_halign(halign)
 for (i=0; i < ds_list_size(itemLabels); i+=1) {
     if (i == hoveredItem) {
-        draw_rect(x, y + dy, width, h + vpad*2, global.guiMainHoverFillColor)
+        draw_rect(0, dy, width, h + vpad*2, global.guiMainHoverFillColor)
     }
 
     /*
@@ -196,16 +196,16 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
     */
 
     if (halign == fa_right)
-        draw_text(x + width - 4, y + dy + vpad, ds_list_find_value(itemLabels, i))
+        draw_text(width - 4, dy + vpad, ds_list_find_value(itemLabels, i))
     else
-        draw_text(x +  4, y + dy + vpad, ds_list_find_value(itemLabels, i))
+        draw_text(4, dy + vpad, ds_list_find_value(itemLabels, i))
 
     if (ds_list_find_value(itemTypes, i) == "toggle" or ds_list_find_value(itemTypes, i) == "bool") {
         if (halign == fa_right)
             guiDrawBool(
                 guiGetThing(ds_list_find_value(itemGetters, i), i),
-                x + vpad,
-                y + vpad + dy,
+                vpad,
+                vpad + dy,
                 h, h)
         else
             guiDrawBool(guiGetThing(ds_list_find_value(itemGetters, i), i), x + width - (vpad + h), y + vpad + dy, h, h)
@@ -214,11 +214,11 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
     if (ds_list_find_value(itemTypes, i) == "dropdown") {
         var _x, _y, _s;
         _s = h -1
-        _y = y + vpad + dy + 1
+        _y = vpad + dy + 1
         if (halign == fa_right)
-            _x = x + vpad
+            _x = vpad
         else
-            _x = x + width - (vpad + h)
+            _x = width - (vpad + h)
 
         if (halign == fa_left) {
             draw_line(_x+_s/2, _y     , _x+_s  , _y+_s/2)
@@ -236,7 +236,7 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
 //outline!!!
 
 if (hasLine) {
-    draw_rect_line(x, y, width, height, lineColor)
+    draw_rect_line(0, 0, width, height, lineColor)
 }
 
 draw_reset()

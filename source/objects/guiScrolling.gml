@@ -64,7 +64,7 @@ applies_to=self
 //!!!WARNING!!! FUCKED UP CODE !!!WARNING!!!
 
 if (hasFill)
-    draw_rect(x, y, width, height, fillColor, 1, 0)
+    draw_rect(0, 0, width, height, fillColor, 1, 0)
 
 //TODO: make this support scrolling elements inside of scrolling elements
 var childSurface; childSurface = surface_create(width, height)
@@ -75,28 +75,28 @@ surface_set_target(childSurface)
 d3d_transform_stack_push()
 d3d_transform_set_translation(-scrollX, -scrollY, 0)
 d3d_transform_stack_push()
-d3d_transform_add_translation(-x, -y, 0)
+//d3d_transform_add_translation(-x, -y, 0)
 guiDrawChildren()
 d3d_transform_stack_pop()
 d3d_transform_stack_pop()
 
 
 surface_set_target(application_surface)
-draw_surface(childSurface, x, y)
+draw_surface(childSurface, 0, 0)
 surface_free(childSurface)
 
 if (hasLine) {
     draw_set_color(lineColor)
-    draw_rect_line(x, y, width, height, true)
+    draw_rect_line(0, 0, width, height, true)
 }
 
 if (global.guiDebug) {
     draw_set_color(make_color_hsv(255 * global.guiElementDepth/10, 255, 255))
-    draw_rectangle(x, y, x+width, y+height, true)
+    draw_rectangle(0, 0, width, height, true)
     for (b=0;b<2;b+=1) {
-        draw_rectangle(x+b, y+b, x+width-b, y+height-b, true)
+        draw_rectangle(b, b, width-b, height-b, true)
         if (b == 1)
-            draw_text_outline(x+b+3, y+b+3, object_get_name(object_index), draw_get_color())
+            draw_text_outline(b+3, b+3, object_get_name(object_index), draw_get_color())
     }
 }
 

@@ -52,14 +52,14 @@ invoy = height - oy
 */
 var drawx, drawy;
 if (mode == "none" or mode == "square") {
-    drawx = x + width/2
-    drawy = y + height/2
+    drawx = width/2
+    drawy = height/2
     drawx += ox - sprite_get_width(sprite) * xscale / 2
     drawy += oy - sprite_get_height(sprite) * yscale / 2
 } else if (mode == "stretch") {
     //forgot the expression, making a guess here
-    drawx = x + ox
-    drawy = y + oy
+    drawx = ox
+    drawy = oy
 }
 
 draw_sprite_ext(sprite, subImage, floor(drawx), floor(drawy), xscale, yscale, angle, blend, alpha)

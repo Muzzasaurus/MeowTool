@@ -10,6 +10,7 @@ action_id=603
 applies_to=self
 */
 hpad = 8
+topBar = false
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -104,7 +105,7 @@ applies_to=self
 */
 //feel
 if (hasFill) {
-    draw_rect(x, y, width, height, fillColor)
+    draw_rect(0, 0, width, height, fillColor)
 }
 
 
@@ -118,17 +119,20 @@ for (i=0; i < ds_list_size(itemLabels); i+=1) {
     var label; label = ds_list_find_value(itemLabels, i)
     var w; w = string_width(label)
     if (i == hoveredItem) {
-        draw_rect(dx - hpad, y, w + hpad*2, height, global.guiMainHoverFillColor)
+        draw_rect(dx - hpad, 0, w + hpad*2, height, global.guiMainHoverFillColor)
     }
-    draw_text(x + dx, y + vpad, label)
+    draw_text(0 + dx, 0 + vpad, label)
     dx += w + hpad*2
 }
 
 
 //outline!!!
 
-if (hasLine) {
-    draw_rect_line(x, y, width, height, lineColor)
+if (topBar) {
+    draw_line(0, height, width, height)
+    draw_line(0, 0, 0, height)
+} else if (hasLine) {
+    draw_rect_line(0, 0, width, height, lineColor)
 }
 
 draw_reset()

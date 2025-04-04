@@ -48,6 +48,7 @@ guiInfo.clickAction = "open info"
 */
 
 var bar; bar = guiCreate(0, 0, sidebarWidth, 99, guiNavBar, guiSidebar)
+bar.topBar = true
 
 guiDropdownAdd(bar, "File", "dropdown", guiDropdownFile)
 guiDropdownAdd(bar, "Player", "dropdown", guiDropdownPlayer)

@@ -223,7 +223,6 @@ draw_set_font(fntMonoTextBox)
 var pad; pad = 2
 d3d_transform_stack_push()
     d3d_transform_add_translation(pad, pad, 0)
-    d3d_transform_add_translation(x, y, 0)
 
     drawTextBox(0, 0, width-pad*2, height-pad*2,string_curse(string_better(text), false), fa_left, fa_top)
 

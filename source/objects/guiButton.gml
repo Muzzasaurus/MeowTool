@@ -68,6 +68,6 @@ fillColor = oldFill
 
 draw_set_color(lineColor)
 draw_set_font(labelFont)
-drawTextBox(x, y, width, height, label, fa_center, fa_center)
+drawTextBox(0, 0, width, height, label, fa_center, fa_center)
 
 draw_reset()
